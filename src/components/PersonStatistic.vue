@@ -4,6 +4,7 @@
       <v-col>
         <div>
           <p>{{ person.personName }}</p>
+          <v-btn @click="calculated()"></v-btn>
         </div>
       </v-col>
     </v-row>
@@ -11,27 +12,16 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
+import { Component, Prop } from "vue-property-decorator";
 import { IPersonInfo } from "@/services/models/IPerson-info.model";
-@Component
-export default class HelloWorld extends Vue {
+import { Mixins } from "vue-property-decorator";
+import ItemMixin from "@/mixins/item.mixin";
+@Component({})
+export default class PersonStatistic extends Mixins(ItemMixin) {
   @Prop({ required: true }) readonly person!: IPersonInfo;
-
-  protected name = "Jackson";
-  public clickMe = "click me";
-  public num1 = 1;
-  public num2 = 2;
-  public c: any = "";
-  public calculated(a: number, b: number): number {
-    console.log(a + b);
-    return (this.c = a + b);
+  public calculated() {
+    return console.log(this.sumTwoNumbers());
   }
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
-.test1 {
-  background: red;
-}
-</style>
+<style scoped lang="scss"></style>
