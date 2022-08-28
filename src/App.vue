@@ -1,32 +1,100 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
-  </div>
+  <v-app>
+    <v-app-bar app color="primary" dense dark>
+      <v-app-bar-nav-icon></v-app-bar-nav-icon>
+
+      <v-toolbar-title>Page title</v-toolbar-title>
+
+      <v-spacer></v-spacer>
+
+      <v-btn
+        v-for="link in links"
+        :key="`${link.label}-header-link`"
+        text
+        rounded
+        color="blue lighten-4"
+        :to="link.url"
+        >{{ link.label }}</v-btn
+      >
+      <v-btn @click="toggleTheme" text rounded>Toggle Theme</v-btn>
+      <v-menu>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn icon v-bind="attrs" v-on="on">
+            <v-icon>mdi-dots-vertical</v-icon>
+          </v-btn>
+        </template>
+
+        <v-list>
+          <v-list-item v-for="n in 5" :key="n" @click="() => {}">
+            <v-list-item-title>Option {{ n }}</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-menu>
+    </v-app-bar>
+    <v-main>
+      <router-view></router-view>
+    </v-main>
+    <v-footer color="primary lighten-1" padless>
+      <v-row justify="center" no-gutters>
+        <v-btn
+          v-for="link in links"
+          :key="`${link.label}-footer-link`"
+          text
+          rounded
+          color="blue lighten-4"
+          :to="link.url"
+          >{{ link.label }}</v-btn
+        >
+        <v-col class="primary lighten-1 py-4 text-center white--text" cols="12">
+          <strong>Our contact: shershen.yevhen@gmail.com</strong>
+        </v-col>
+      </v-row>
+    </v-footer>
+  </v-app>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
-</style>
+<script lang="ts">
+import Vue from "vue";
+export default Vue.extend({
+  name: "App",
+  components: {},
+  data: () => ({
+    links: [
+      {
+        label: "Home",
+        url: "/",
+      },
+      {
+        label: "Login",
+        url: "/login",
+      },
+      {
+        label: "Signup",
+        url: "/signup",
+      },
+      {
+        label: "Work-desek",
+        url: "/work-desk",
+      },
+      {
+        label: "Statistic",
+        url: "/statistic",
+      },
+    ],
+  }),
+  methods: {
+    test() {
+      let phrase;
+      alert(phrase);
+      phrase = "Привет";
+    },
+    //https://vuetifyjs.com/en/features/theme/#light-and-dark
+    toggleTheme() {
+      //anchor это свойство которая дает цвет ссылкам в проекте
+      this.$vuetify.theme.themes.dark.anchor = "#41B883";
+      // this.$vuetify.theme.themes.light.anchor = '#FF5252';
+      this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
+    },
+  },
+});
+</script>
