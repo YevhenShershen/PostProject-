@@ -30,6 +30,11 @@ const routes: Array<RouteConfig> = [
     component: () => import("../components/Signup.vue"),
   },
   {
+    path: "/work-desk",
+    name: "WorkDesk",
+    component: () => import("../components/WorkDesk.vue"),
+  },
+  {
     path: "/statistic",
     name: "Statistic",
     component: () => import("../components/Statistic.vue"),

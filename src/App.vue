@@ -16,7 +16,6 @@
         :to="link.url"
         >{{ link.label }}</v-btn
       >
-      <v-btn @click="toggleTheme" text rounded>Toggle Theme</v-btn>
       <v-menu>
         <template v-slot:activator="{ on, attrs }">
           <v-btn icon v-bind="attrs" v-on="on">
@@ -32,7 +31,12 @@
       </v-menu>
     </v-app-bar>
     <v-main>
-      <router-view></router-view>
+      <!-- тут мы создаем таким образом контейнер и центрируем его-->
+      <v-row no-gutters justify="center">
+        <v-col cols="12" lg="11">
+          <router-view></router-view>
+        </v-col>
+      </v-row>
     </v-main>
     <v-footer color="primary lighten-1" padless>
       <v-row justify="center" no-gutters>
@@ -82,19 +86,5 @@ export default Vue.extend({
       },
     ],
   }),
-  methods: {
-    test() {
-      let phrase;
-      alert(phrase);
-      phrase = "Привет";
-    },
-    //https://vuetifyjs.com/en/features/theme/#light-and-dark
-    toggleTheme() {
-      //anchor это свойство которая дает цвет ссылкам в проекте
-      this.$vuetify.theme.themes.dark.anchor = "#41B883";
-      // this.$vuetify.theme.themes.light.anchor = '#FF5252';
-      this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
-    },
-  },
 });
 </script>
