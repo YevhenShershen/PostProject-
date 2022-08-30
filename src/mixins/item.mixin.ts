@@ -1,8 +1,7 @@
 import { Component, Vue } from "vue-property-decorator";
-
+//тут можем создавать переменные и функции и использовать их во всем проекте
 @Component
 class ItemMixin extends Vue {
-  //тут можем создавать переменные и функции
   sumTwoNumbers() {
     return 3 + 5;
   }

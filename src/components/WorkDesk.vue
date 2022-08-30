@@ -1,49 +1,20 @@
 <template>
-  <v-form ref="form" v-model="valid" lazy-validation>
-    <v-text-field
-      v-model="name"
-      :counter="10"
-      :rules="nameRules"
-      label="Name"
-      required
-    ></v-text-field>
-
-    <v-text-field
-      v-model="surname"
-      :counter="10"
-      :rules="surnameRules"
-      label="Surname"
-      required
-    ></v-text-field>
-
-    <v-select
-      v-model="select"
-      :items="$store.state.areas"
-      :rules="[(v) => !!v || 'Area is required']"
-      label="Area"
-      required
-    ></v-select>
-
-    <v-checkbox
-      v-model="checkbox"
-      :rules="[(v) => !!v || 'You must agree to continue!']"
-      label="Do you agree?"
-      required
-    ></v-checkbox>
-
-    <v-btn :disabled="!valid" color="success" class="mr-4" @click="validate">
-      Validate
-    </v-btn>
-
-    <v-btn color="error" class="mr-4" @click="reset"> Reset Form </v-btn>
-
-    <v-btn color="warning" @click="resetValidation"> Reset Validation </v-btn>
-  </v-form>
+  <v-row>
+    <AddPerson></AddPerson>
+    <ChangeInfoPerson></ChangeInfoPerson>
+  </v-row>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-@Component({})
+import ChangeInfoPerson from "@/components/workdesk/ChangeInfoPerson.vue";
+import AddPerson from "@/components/workdesk/AddPerson.vue";
+@Component({
+  components: {
+    ChangeInfoPerson,
+    AddPerson,
+  },
+})
 export default class WorkDesk extends Vue {
   protected person = {
     name: "",
@@ -53,7 +24,7 @@ export default class WorkDesk extends Vue {
     isActive: true,
     extraHours: "",
   };
-
+  dialog = false;
   valid = true;
   name = "";
   surname = "";
@@ -70,14 +41,15 @@ export default class WorkDesk extends Vue {
   checkbox = false;
 
   validate() {
-    this.person = {
-      name: this.name,
-      surname: this.surname,
-      area: this.area,
-      isHaveArea: true,
-      isActive: true,
-      extraHours: "",
-    };
+    (this.dialog = false),
+      (this.person = {
+        name: this.name,
+        surname: this.surname,
+        area: this.area,
+        isHaveArea: true,
+        isActive: true,
+        extraHours: "",
+      });
     this.$store.state.staffInformation.push(this.person);
     this.person = {
       name: "",

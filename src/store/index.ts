@@ -6,27 +6,28 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     count: 0,
+    areas: ["absence", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     staffInformation: [
       {
-        name: "Yevhen",
-        surname: "Shershen",
+        name: "Name1",
+        surname: "Surname1",
         area: "1",
         isHaveArea: true,
         isActive: true,
         extraHours: "",
       },
       {
-        name: "Dmytro",
-        surname: "Shershen",
+        name: "Name2",
+        surname: "Surname2",
         area: "2",
         isHaveArea: true,
         isActive: true,
         extraHours: "",
       },
     ],
-    areas: ["Area: 2", "Area: 3", "Area: 4", "Area: 5", "Area: 6", "Area: 7"],
   },
   mutations: {},
   actions: {},
   modules: {},
+  getters: {},
 });

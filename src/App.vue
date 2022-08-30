@@ -40,15 +40,6 @@
     </v-main>
     <v-footer color="primary lighten-1" padless>
       <v-row justify="center" no-gutters>
-        <v-btn
-          v-for="link in links"
-          :key="`${link.label}-footer-link`"
-          text
-          rounded
-          color="blue lighten-4"
-          :to="link.url"
-          >{{ link.label }}</v-btn
-        >
         <v-col class="primary lighten-1 py-4 text-center white--text" cols="12">
           <strong>Our contact: shershen.yevhen@gmail.com</strong>
         </v-col>
