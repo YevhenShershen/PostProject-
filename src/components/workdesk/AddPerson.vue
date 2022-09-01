@@ -38,14 +38,12 @@
       <v-btn color="error" class="mr-4" @click="reset">
         Reset Information</v-btn
       >
-      <v-btn class="success" @click="enumEcho">enum</v-btn>
     </v-form></v-col
   >
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import categories from "@/services/enums/categories";
 @Component({
   components: {},
 })
@@ -63,12 +61,14 @@ export default class AddPerson extends Vue {
   surname = "";
   area = "";
   nameRules = [
-    (v) => !!v || "Name is required",
-    (v) => (v && v.length <= 10) || "Name must be less than 10 characters",
+    (v: string) => !!v || "Name is required",
+    (v: string) =>
+      (v && v.length <= 10) || "Name must be less than 10 characters",
   ];
   surnameRules = [
-    (v) => !!v || "Surname is required",
-    (v) => (v && v.length <= 10) || "Surname must be less than 10 characters",
+    (v: string) => !!v || "Surname is required",
+    (v: string) =>
+      (v && v.length <= 10) || "Surname must be less than 10 characters",
   ];
   checkbox = false;
 
@@ -90,13 +90,10 @@ export default class AddPerson extends Vue {
       isActive: true,
       extraHours: "",
     };
-    this.$refs.form.validate();
+    (this.$refs as { form: HTMLFormElement }).form.validate();
   }
   reset() {
-    this.$refs.form.reset();
-  }
-  enumEcho() {
-    console.log(categories.LAST_ADDED_CATEGORIES);
+    (this.$refs as { form: HTMLFormElement }).form.reset();
   }
 }
 </script>
