@@ -38,12 +38,14 @@
       <v-btn color="error" class="mr-4" @click="reset">
         Reset Information</v-btn
       >
+      <v-btn class="success" @click="enumEcho">enum</v-btn>
     </v-form></v-col
   >
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
+import categories from "@/services/enums/categories";
 @Component({
   components: {},
 })
@@ -92,6 +94,9 @@ export default class AddPerson extends Vue {
   }
   reset() {
     this.$refs.form.reset();
+  }
+  enumEcho() {
+    console.log(categories.LAST_ADDED_CATEGORIES);
   }
 }
 </script>
