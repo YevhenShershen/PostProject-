@@ -1,9 +1,9 @@
 <template>
   <v-col cols="3">
-    <h2 class="mt-4">Add person {{ $store.getters.allAreas }}</h2>
+    <h2 class="mt-4">Add person</h2>
     <v-form ref="form" v-model="valid" lazy-validation class="desk-form">
       <v-text-field
-        v-model="name"
+        v-model="person.personName"
         :counter="10"
         :rules="nameRules"
         label="Name"
@@ -11,7 +11,7 @@
       ></v-text-field>
 
       <v-text-field
-        v-model="surname"
+        v-model="person.personSurname"
         :counter="15"
         :rules="surnameRules"
         label="Surname"
@@ -19,7 +19,7 @@
       ></v-text-field>
 
       <v-select
-        v-model="area"
+        v-model="person.personArea"
         :items="$store.state.areas"
         :rules="[(v) => !!v || 'Area is required']"
         label="Area"
@@ -32,7 +32,12 @@
         label="Do you agree?"
         required
       ></v-checkbox>
-      <v-btn :disabled="!valid" color="success" class="mr-4" @click="validate">
+      <v-btn
+        :disabled="!valid"
+        color="success"
+        class="mr-4"
+        @click="validate(person)"
+      >
         Add Information
       </v-btn>
       <v-btn color="error" class="mr-4" @click="reset">
@@ -44,22 +49,21 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
+import { IPersonInfo } from "@/services/models/IPerson-info.model";
 @Component({
   components: {},
 })
 export default class AddPerson extends Vue {
-  protected person = {
-    name: "",
-    surname: "",
-    area: "",
-    isHaveArea: true,
-    isActive: true,
-    extraHours: "",
+  person: IPersonInfo = {
+    personId: this.$store.state.staffInformation.length,
+    personName: "",
+    personSurname: "",
+    personArea: true,
+    personIsWork: true,
+    personExtraWork: 0,
   };
   valid = true;
-  name = "";
-  surname = "";
-  area = "";
+  dialog = false;
   nameRules = [
     (v: string) => !!v || "Name is required",
     (v: string) =>
@@ -72,25 +76,29 @@ export default class AddPerson extends Vue {
   ];
   checkbox = false;
 
-  validate() {
-    this.person = {
-      name: this.name,
-      surname: this.surname,
-      area: this.area,
-      isHaveArea: true,
-      isActive: true,
-      extraHours: "",
-    };
-    this.$store.state.staffInformation.push(this.person);
-    this.person = {
-      name: "",
-      surname: "",
-      area: "",
-      isHaveArea: true,
-      isActive: true,
-      extraHours: "",
-    };
-    (this.$refs as { form: HTMLFormElement }).form.validate();
+  validate(item: IPersonInfo) {
+    console.log(item);
+    if (
+      item.personName !== null &&
+      item.personSurname !== null &&
+      this.checkbox !== true
+    ) {
+      (this.dialog = false), console.log("error");
+      console.log(this.checkbox);
+    } else {
+      this.$store.state.staffInformation.push(this.person);
+      this.person = {
+        personId: 0,
+        personName: "",
+        personSurname: "",
+        personArea: true,
+        personIsWork: true,
+        personExtraWork: 0,
+      };
+
+      (this.$refs as { form: HTMLFormElement }).form.validate();
+      this.dialog = true;
+    }
   }
   reset() {
     (this.$refs as { form: HTMLFormElement }).form.reset();
