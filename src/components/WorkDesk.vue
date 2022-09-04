@@ -1,7 +1,7 @@
 <template>
   <v-row>
-    <AddPerson></AddPerson>
-    <ChangeInfoPerson></ChangeInfoPerson>
+    <AddPerson :persons="persons"></AddPerson>
+    <ChangeInfoPerson :persons="persons"></ChangeInfoPerson>
   </v-row>
 </template>
 
@@ -15,7 +15,9 @@ import AddPerson from "@/components/workdesk/AddPerson.vue";
     AddPerson,
   },
 })
-export default class WorkDesk extends Vue {}
+export default class WorkDesk extends Vue {
+  public persons = this.$store.state.staffInformation;
+}
 </script>
 
 <style scoped lang="scss"></style>
