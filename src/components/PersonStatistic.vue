@@ -3,8 +3,8 @@
     <v-row class="text-center">
       <v-col>
         <div>
-          <p>{{ person.name }}</p>
-          <v-btn class="success" @click="calculated()">Mixin</v-btn>
+          <p>{{ person.personName }}</p>
+          <v-btn class="success" @click="calculated()">Mixin1</v-btn>
         </div>
       </v-col>
     </v-row>

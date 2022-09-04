@@ -27,9 +27,9 @@
           <p>STATISTIC</p>
           <h1>Counter: {{ $store.state.count }}</h1>
           <PersonStatistic
-            :person="person1"
-            v-for="person1 in $store.state.staffInformation"
-            :key="person1"
+            :person="personInfo"
+            v-for="personInfo in $store.state.staffInformation"
+            :key="personInfo"
           ></PersonStatistic>
         </div>
       </v-col>
