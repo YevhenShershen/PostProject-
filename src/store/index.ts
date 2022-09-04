@@ -5,7 +5,6 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    count: 0,
     areas: ["absence", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     staffInformation: [
       {
@@ -21,12 +20,19 @@ export default new Vuex.Store({
         personName: "Name2",
         personSurname: "Surname2",
         personArea: "2",
-        personIsWork: true,
+        personIsWork: false,
         personExtraWork: "",
       },
     ],
   },
-  mutations: {},
+  mutations: {
+    removePerson(state, id: number) {
+      return state.staffInformation.splice(id, 1);
+    },
+    changeWorkInfo(_, person) {
+      return (person.personIsWork = !person.personIsWork);
+    },
+  },
   actions: {},
   modules: {},
   getters: {},
