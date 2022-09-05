@@ -48,12 +48,13 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Prop, Vue } from "vue-property-decorator";
 import { IPersonInfo } from "@/services/models/IPerson-info.model";
 @Component({
   components: {},
 })
 export default class AddPerson extends Vue {
+  @Prop({ required: true }) readonly persons!: any;
   person: IPersonInfo = {
     personId: this.$store.state.staffInformation.length,
     personName: "",
@@ -84,9 +85,8 @@ export default class AddPerson extends Vue {
       this.checkbox !== true
     ) {
       (this.dialog = false), console.log("error");
-      console.log(this.checkbox);
     } else {
-      this.$store.state.staffInformation.push(this.person);
+      this.persons.push(this.person);
       this.person = {
         personId: 0,
         personName: "",
