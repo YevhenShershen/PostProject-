@@ -8,14 +8,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     areas: ["absence", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-    information: {
-      personId: "Number",
-      personName: "Name",
-      personSurname: "Surname",
-      personIsWork: "Is work?",
-      personExtraWork: "Extra work",
-      personArea: "Area",
-    },
+
     staffInformation: [
       {
         personId: 1,
@@ -47,9 +40,6 @@ export default new Vuex.Store({
   // мутации это то как мы меняем состояние(а состояние это данные в state)
   mutations: {
     //только работа со стейтом
-    information(state) {
-      return state.information;
-    },
     removePerson(state, id: number) {
       return state.staffInformation.splice(id, 1);
     },

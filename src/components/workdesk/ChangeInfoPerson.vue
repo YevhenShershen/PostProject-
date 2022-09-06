@@ -123,12 +123,27 @@
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
 import { IPersonInfo } from "@/services/models/IPerson-info.model";
-import { mapState } from "vuex";
-@Component({
-  computed: mapState(["information"]),
-})
+
+interface Iinformation {
+  personId: string;
+  personName: string;
+  personSurname: string;
+  personIsWork: string;
+  personExtraWork: string;
+  persnArea: string;
+}
+@Component({})
 export default class ChangeInfoPerson extends Vue {
   @Prop({ required: true }) readonly persons!: any;
+
+  public information: Iinformation = {
+    personId: "Number",
+    personName: "Name",
+    personSurname: "Surname",
+    personIsWork: "Is work?",
+    personExtraWork: "Extra work",
+    persnArea: "Area",
+  };
   personChange: IPersonInfo = {
     personId: 0,
     personName: "",
