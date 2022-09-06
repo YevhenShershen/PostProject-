@@ -3,6 +3,6 @@ export interface IPersonInfo {
   personName: string;
   personSurname: string;
   personArea: boolean | string;
-  personIsWork: boolean;
+  personIsWork: string;
   personExtraWork: number;
 }
