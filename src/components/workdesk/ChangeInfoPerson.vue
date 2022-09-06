@@ -1,6 +1,6 @@
 <template>
-  <v-col cols="6" class="change-info">
-    <h2 class="mt-4">Change information</h2>
+  <v-col cols="4" class="change-info">
+    <h2 class="mt-4 test">Change information</h2>
     <v-row>
       <v-col v-for="[key, value] in Object.entries(information)" :key="key">
         <span @click="sortInformation(key)" class="change-info__header">
@@ -137,7 +137,7 @@ export default class ChangeInfoPerson extends Vue {
   @Prop({ required: true }) readonly persons!: any;
 
   public information: Iinformation = {
-    personId: "Number",
+    personId: "Id",
     personName: "Name",
     personSurname: "Surname",
     personIsWork: "Is work?",
@@ -229,11 +229,14 @@ export default class ChangeInfoPerson extends Vue {
     width: 100%;
     height: auto;
     &:hover {
-      color: green;
+      color: $buttonAgree;
     }
   }
   .testBtn {
     border-radius: 50%;
+  }
+  .test {
+    // font-size: $font;
   }
 }
 </style>
