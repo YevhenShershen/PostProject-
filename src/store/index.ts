@@ -3,7 +3,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import { IPersonInfo } from "@/services/models/IPerson-info.model";
-import persons from "./modules/persons";
+import { persons } from "./modules/persons";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
