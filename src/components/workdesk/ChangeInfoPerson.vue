@@ -1,5 +1,5 @@
 <template>
-  <v-col class="change-info">
+  <v-col class="change-info" cols="">
     <h2 class="mt-4">Change information</h2>
     <v-row>
       <v-col v-for="[key, value] in Object.entries(information)" :key="key">
@@ -16,35 +16,33 @@
     >
       <v-col>
         <p class="desk__info ma-0">
-          {{ person.personId }}
+          {{ person.id }}
         </p></v-col
       >
       <v-col>
         <p class="desk__info ma-0">
-          {{ person.personName }}
+          {{ person.name }}
         </p></v-col
       >
       <v-col>
         <p class="desk__info ma-0">
-          {{ person.personSurname }}
+          {{ person.username }}
         </p></v-col
       >
       <v-col class="d-flex justify-space-between">
-        <p class="desk__info ma-0">Work: {{ person.personIsWork }}</p>
+        <p class="desk__info ma-0">{{ person.phone }}</p>
         <span
           class="change-info__work mx-2 d-block"
-          :class="person.personIsWork ? 'background: green' : 'background: red'"
+          :class="person.phone ? 'background: green' : 'background: red'"
           @click="$store.commit('changeWorkInfo', person)"
         ></span
       ></v-col>
       <v-col
-        ><p class="desk__info ma-0">
-          Extra work: {{ person.personExtraWork }}
-        </p></v-col
+        ><p class="desk__info ma-0">Website: {{ person.website }}</p></v-col
       >
 
       <v-col
-        ><p class="desk__area ma-0">Area: {{ person.personArea }}</p></v-col
+        ><p class="desk__area ma-0">Email: {{ person.email }}</p></v-col
       >
       <v-col class="d-flex">
         <v-btn
@@ -66,33 +64,58 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
-import PersonInformation from "@/components/workdesk/AddPerson.vue";
 interface Iinformation {
-  personId: string;
-  personName: string;
-  personSurname: string;
-  personIsWork: string;
-  personExtraWork: string;
-  persnArea: string;
+  id: string;
+  name: string;
+  username: string;
+  phone: string;
+  website: string;
+  email: string;
 }
 @Component({
-  components: {
-    PersonInformation,
-  },
+  computed: {},
 })
 export default class ChangeInfoPerson extends Vue {
   @Prop({ required: true }) readonly persons!: any;
-
+  public sortValue = true;
   public information: Iinformation = {
-    personId: "Id",
-    personName: "Name",
-    personSurname: "Surname",
-    personIsWork: "Is work?",
-    personExtraWork: "Extra work",
-    persnArea: "Area",
+    id: "Id",
+    name: "Name",
+    username: "Surname",
+    phone: "Phone",
+    website: "Website",
+    email: "Email",
   };
-  sortInformation(sortedKey: number | string) {
-    this.persons.sort((a, b) => a[sortedKey] - b[sortedKey]);
+  sortToDown(el) {
+    this.sortValue = false;
+    this.persons.sort(function (a, b) {
+      if (a[el] > b[el]) {
+        return -1;
+      }
+      if (a[el] < b[el]) {
+        return 1;
+      }
+      return 0;
+    });
+  }
+  sortToLarger(el) {
+    this.sortValue = true;
+    this.persons.sort(function (a, b) {
+      if (a[el] > b[el]) {
+        return 1;
+      }
+      if (a[el] < b[el]) {
+        return -1;
+      }
+      return 0;
+    });
+  }
+  sortInformation(sortedKey: any) {
+    if (this.sortValue) {
+      this.sortToDown(sortedKey);
+    } else {
+      this.sortToLarger(sortedKey);
+    }
   }
 }
 </script>
