@@ -1,1 +1,39 @@
-@import '_app-variables'
+@import "_app-variables";
+
+// $colors: (
+//   color1: #3a3d40,
+// );
+body {
+  font-size: 20px;
+}
+.app-title {
+  margin-bottom: 15px;
+  font-size: 32px;
+}
+.app-title,
+p,
+li {
+  color: #3a3d40;
+}
+.main-title {
+  font-size: 42px !important;
+  text-align: center;
+  margin: 30px 0;
+  text-transform: uppercase;
+}
+// Buttons styles
+.app-btn {
+  font-size: 32px;
+  text-transform: uppercase;
+  background: #ad0000;
+  color: white;
+  border-radius: 30px;
+  padding: 8px 60px;
+}
+.app-btn:hover {
+  background-color: #b33030;
+  color: rgb(221, 216, 216);
+  -webkit-box-shadow: 8px 8px 37px -7px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 8px 8px 37px -7px rgba(66, 68, 90, 1);
+  box-shadow: 8px 8px 37px -7px rgba(66, 68, 90, 1);
+}
