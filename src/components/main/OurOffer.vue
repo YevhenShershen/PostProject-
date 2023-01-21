@@ -1,5 +1,5 @@
 <template>
-  <div class="our-offer app-title">
+  <div class="our-offer">
     <h2 class="our-offer_title app-title main-title">NASZA OFERTA</h2>
     <v-row class="justify-space-around">
       <v-col
@@ -13,7 +13,7 @@
           <img src="~@/assets/images/services/services-shops.jpg" alt="" />
           <p class="our-offer_text">{{ serv.label }}</p>
           <a href="">
-            <button class="our-offer_but">Sprawdź ofertę</button>
+            <button class="our-offer_but app-btn">Sprawdź ofertę</button>
           </a>
         </div>
       </v-col>
@@ -25,27 +25,12 @@
 import { Component, Vue } from "vue-property-decorator";
 @Component
 export default class OurOffer extends Vue {
-  services = [
-    {
-      label: "Strony internetowe",
-      url: "/websites",
-      // src: require("url(./assets/images/services/services-shops.jpg"),
-    },
-    {
-      label: "Sklepy internetowe",
-      url: "/web-shops",
-      // src: require("url(./assets/images/services/services-shops.jpg"),
-    },
-    {
-      label: "Naprawa, modernizacja stron",
-      url: "/repair-pages",
-      // src: require("url(./assets/images/services/services-shops.jpg"),
-    },
-  ];
+  services = this.$store.state.servicesNav;
 }
 </script>
 <style lang="scss" scoped>
 .our-offer {
+  margin-bottom: 15px;
   &_title {
   }
 
@@ -63,19 +48,8 @@ export default class OurOffer extends Vue {
   }
 
   &_but {
-    background: #ad0000;
-    color: white;
-    border-radius: 30px;
-    padding: 8px 60px;
     margin-bottom: 35px;
   }
-}
-.our-offer_but:hover {
-  background-color: #b33030;
-  color: rgb(221, 216, 216);
-  -webkit-box-shadow: 8px 8px 37px -7px rgba(66, 68, 90, 1);
-  -moz-box-shadow: 8px 8px 37px -7px rgba(66, 68, 90, 1);
-  box-shadow: 8px 8px 37px -7px rgba(66, 68, 90, 1);
 }
 </style>
 <!-- :style="{ backgroundImage: `url(${serv.src})` }" -->

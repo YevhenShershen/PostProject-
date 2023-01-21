@@ -1,9 +1,9 @@
 //идея vuex в том что мы описываем всю бизнесс логику в vuex
-
 import Vue from "vue";
 import Vuex from "vuex";
 import { IPersonInfo } from "@/services/models/IPerson-info.model";
 import { persons } from "./modules/persons";
+import { companyInformation } from "./modules/company-information";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -16,31 +16,35 @@ export default new Vuex.Store({
       login: "admin",
       password: "admin",
     },
-    staffInformation: [
+    servicesNav: [
       {
-        personId: 1,
-        personName: "Name1",
-        personSurname: "Surname1",
-        personArea: 1,
-        personIsWork: "at work",
-        personExtraWork: 33,
+        label: "Strony internetowe",
+        url: "/websites",
+      },
+
+      {
+        label: "Sklepy internetowe",
+        url: "/web-shops",
       },
       {
-        personId: 2,
-        personName: "Name2",
-        personSurname: "Surname2",
-        personArea: 3,
-        personIsWork: "out work",
-        personExtraWork: 22,
+        label: "Naprawa, modernizacja stron",
+        url: "/repair-pages",
+      },
+    ],
+    infoNav: [
+      {
+        label: "O nas",
+        url: "/about-us",
       },
       {
-        personId: 4,
-        personName: "dsaf",
-        personSurname: "DAFSS",
-        personArea: 2,
-        personIsWork: "at work",
-        personExtraWork: 222,
+        label: "Kontakt",
+        url: "/contact",
       },
+      {
+        label: "Login",
+        url: "/login",
+      },
+      { label: "WorkDesk", url: "/work-desk" },
     ],
   },
 
@@ -48,18 +52,18 @@ export default new Vuex.Store({
   mutations: {
     //только синхронные методы
     //функции которые изменяют store
-    removePerson(state, id: number) {
-      return state.staffInformation.splice(id, 1);
-    },
-    changeWorkInfo(_, person: IPersonInfo) {
-      return (person.personIsWork = !person.personIsWork);
-    },
-    receivingPersonInfo(state, person: IPersonInfo) {
-      return (state.personInformation = person);
-    },
-    personInformation(state) {
-      return state.personInformation;
-    },
+    // removePerson(state, id: number) {
+    //   return state.staffInformation.splice(id, 1);
+    // },
+    // changeWorkInfo(_, person: IPersonInfo) {
+    //   return (person.personIsWork = !person.personIsWork);
+    // },
+    // receivingPersonInfo(state, person: IPersonInfo) {
+    //   return (state.personInformation = person);
+    // },
+    // personInformation(state) {
+    //   return state.personInformation;
+    // },
   },
   actions: {
     //сделать сделаем функцию которая выполняет запросы с бекэнда
@@ -68,6 +72,7 @@ export default new Vuex.Store({
   modules: {
     //стор можем делить на разные чанки (чанки это )
     persons,
+    companyInformation,
   },
   getters: {
     //трасформировать данные в store и получать их из store
