@@ -63,4 +63,9 @@ export default class Description extends Vue {
     font-weight: bold;
   }
 }
+@media (max-width: 1264px) {
+  .description_content {
+    width: 100%;
+  }
+}
 </style>

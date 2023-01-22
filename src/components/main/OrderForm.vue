@@ -22,7 +22,7 @@
       <v-col xl="6" lg="6" md="12" sm="12" class="order_contact-form">
         <form action="" class="order_form">
           <h3 class="order_title text-center">Formularz kontaktowy</h3>
-          <v-row no-gutters>
+          <v-row no-gutters class="order_shell">
             <v-col xl="6" lg="12" md="12" sm="12" xs="12">
               <input type="text" placeholder="Firm" class="order_input" />
             </v-col>
@@ -43,14 +43,16 @@
                 class="order_input"
               />
             </v-col>
-            <textarea
-              name=""
-              id=""
-              cols="30"
-              rows="10"
-              placeholder="Twoja wiadomość"
-              class="order_textarea"
-            ></textarea>
+            <div>
+              <textarea
+                name=""
+                id=""
+                cols="30"
+                rows="10"
+                placeholder="Twoja wiadomość"
+                class="order_textarea"
+              ></textarea>
+            </div>
             <v-col cols="12">
               <label>
                 <input type="checkbox" /><span class="order_text-checkbox"
@@ -114,7 +116,8 @@ export default class OrderForm extends Vue {
     box-shadow: 0px 5px 25px 0px rgb(189 189 189);
     padding: 35px;
   }
-
+  &_shell {
+  }
   &_input {
     border-bottom: 2px solid #3a3d40;
     width: 90%;
@@ -140,5 +143,12 @@ export default class OrderForm extends Vue {
 :focus {
   outline: 0;
   outline-offset: 0;
+}
+
+@media (max-width: 600px) {
+  .order_shell {
+    display: flex;
+    flex-direction: column;
+  }
 }
 </style>
