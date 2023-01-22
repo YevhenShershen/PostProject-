@@ -44,7 +44,7 @@ export default new Vuex.Store({
         label: "Login",
         url: "/login",
       },
-      { label: "WorkDesk", url: "/work-desk" },
+      { label: "TestComponent", url: "/work-desk" },
     ],
   },
 

@@ -43,7 +43,7 @@
                 class="order_input"
               />
             </v-col>
-            <div>
+            <div class="order_textarea-field">
               <textarea
                 name=""
                 id=""
@@ -115,6 +115,9 @@ export default class OrderForm extends Vue {
     background-color: #f7f7f7;
     box-shadow: 0px 5px 25px 0px rgb(189 189 189);
     padding: 35px;
+  }
+  &_textarea-field {
+    width: 100%;
   }
   &_shell {
   }
