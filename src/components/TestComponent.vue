@@ -1,33 +1,41 @@
 <template>
-  <v-row>
-    <PersonsInformation :persons="persons"></PersonsInformation>
-    <AddPerson :persons="persons"></AddPerson>
-    <ChangeInfoPerson :persons="persons"></ChangeInfoPerson>
-    <button @click="call()">Save</button>
-  </v-row>
+  <div>
+    <h1>Test Component</h1>
+    <div>
+      <h1>Todos</h1>
+      <ul>
+        <li v-for="todo in todos" :key="todo.text">{{ todo.text }}</li>
+      </ul>
+    </div>
+    <div>
+      <h1>Dones</h1>
+      <ul>
+        <li v-for="todo in dones" :key="todo.text">{{ todo.text }}</li>
+      </ul>
+    </div>
+    <input
+      type="text"
+      placeholder="some text"
+      v-model="newTodo.text"
+      @keyup.enter="addTodo(newTodo)"
+    />
+  </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import { mapState, mapGetters, mapActions } from "vuex";
 
-@Component({
-  components: {},
-  methods: mapActions(["fetchPersons"]),
-  computed: {
-    ...mapGetters(["receivingPersons", "receivingPersonsName"]),
-    ...mapState(["persons"]),
-  },
-})
+import { Todo } from "@/store/todos/types";
+import { Getter, Mutation } from "vuex-class";
+@Component
 export default class TestComponent extends Vue {
-  public persons = this.$store.state.persons.persons;
-  async mounted() {
-    // this.$store.dispatch("fetchPersons")
-    this.$store.dispatch("fetchPersons");
-  }
-  public call() {
-    console.log(this.persons);
-  }
+  @Getter todos!: Todo[];
+  @Getter dones!: Todo[];
+  @Mutation addTodo: any;
+  newTodo: Todo = {
+    text: "",
+    checked: false,
+  };
 }
 </script>
 
