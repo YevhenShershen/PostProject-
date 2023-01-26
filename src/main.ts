@@ -1,7 +1,7 @@
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
-import store from "@/store/index";
+import { store } from "@/store/index";
 import vuetify from "./plugins/vuetify";
 import { library } from "@fortawesome/fontawesome-svg-core";
 
@@ -15,8 +15,19 @@ import { faUserSecret } from "@fortawesome/free-solid-svg-icons";
 library.add(faUserSecret);
 /* add font awesome icon component */
 Vue.component("font-awesome-icon", FontAwesomeIcon);
+// import "./scss/_variables.scss";
+// import "@/assets/global.css";
 import "./scss/main.scss";
 Vue.config.productionTip = false;
+
+//
+
+const load = true;
+if (!load) {
+  import("./store/todos/login").then(({ login }) => {
+    store.registerModule("login", login);
+  });
+}
 
 new Vue({
   router,

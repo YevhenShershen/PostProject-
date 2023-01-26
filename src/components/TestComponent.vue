@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1 class="test-title">Test Component</h1>
-    <div>
+    <div v-if="login">
       <h2>Login</h2>
       <button v-if="!login.IsLoggedIn" @click="loginMutation">Login</button>
       <p v-else>Hello{{ login.user }}</p>

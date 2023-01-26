@@ -4,9 +4,9 @@ import { companyInformation } from "@/store/company-information/company-informat
 import { employees } from "@/store/employees/employees";
 import { navigation } from "@/store/navigation/navigation";
 import { todos } from "@/store/todos/todos";
-import { login } from "@/store/todos/login";
+
 Vue.use(Vuex);
 
 export const store = new Vuex.Store({
-  modules: { companyInformation, employees, navigation, todos, login },
+  modules: { companyInformation, employees, navigation, todos },
 });
