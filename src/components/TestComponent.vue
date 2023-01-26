@@ -19,6 +19,7 @@
       v-model="newTodo.text"
       @keyup.enter="addTodo(newTodo)"
     />
+    <h1>{{ todos2 }}</h1>
   </div>
 </template>
 
@@ -26,9 +27,10 @@
 import { Component, Vue } from "vue-property-decorator";
 
 import { Todo } from "@/store/todos/types";
-import { Getter, Mutation } from "vuex-class";
+import { State, Getter, Mutation } from "vuex-class";
 @Component
 export default class TestComponent extends Vue {
+  @State("todos") todos2!: Todo[];
   @Getter todos!: Todo[];
   @Getter dones!: Todo[];
   @Mutation addTodo: any;
