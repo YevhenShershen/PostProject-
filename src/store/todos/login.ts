@@ -1,5 +1,6 @@
 import { GetterTree, MutationTree, Module } from "vuex";
 import { RootState, LoginState } from "./types";
+import { Store } from "vuex";
 const state: LoginState = {
   user: "",
   IsLoggedIn: false,
@@ -15,3 +16,6 @@ export const login: Module<LoginState, RootState> = {
   mutations,
   namespaced: true,
 };
+export function load(store: Store<any>) {
+  store.registerModule("login", login);
+}

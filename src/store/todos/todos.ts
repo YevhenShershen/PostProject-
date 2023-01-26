@@ -1,5 +1,6 @@
 import { RootState, TodoState, Todo } from "./types";
 import { GetterTree, MutationTree, ActionTree, Module } from "vuex";
+type TodoGetter = GetterTree<TodoState, RootState>;
 export const state: TodoState = {
   todos: [
     {
@@ -16,7 +17,7 @@ export const state: TodoState = {
     },
   ],
 };
-export const getters: GetterTree<TodoState, RootState> = {
+export const getters: TodoGetter = {
   todos: (state, getters, rootState) =>
     state.todos.filter((todo) => !todo.checked),
   dones: (state) => state.todos.filter((todo) => todo.checked),
@@ -30,7 +31,7 @@ export const mutations: MutationTree<TodoState> = {
   },
 };
 export const actions: ActionTree<TodoState, RootState> = {
-  addTodoAsync({ commit, rootState }, id) {
+  addTodoAsync({ commit, dispatch, rootState }, id) {
     fetch("https://jsonplaceholder.typicode.com/todos/" + id)
       .then((data) => data.json())
       .then((item) => {
@@ -39,6 +40,8 @@ export const actions: ActionTree<TodoState, RootState> = {
           text: rootState.login.user + ": " + item.title,
         };
         commit("addTodo", todo);
+        commit("sum", null, { root: true });
+        dispatch("actionName", null, { root: true });
       });
     // .catch((error) => {
     //   alert(error);
