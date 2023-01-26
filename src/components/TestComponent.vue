@@ -57,16 +57,21 @@
 import { Component, Vue } from "vue-property-decorator";
 
 import { Todo, LoginState } from "@/store/todos/types";
-import { State, Getter, Mutation, Action } from "vuex-class";
+import { State, Getter, Mutation, Action, namespace } from "vuex-class";
+
+const TodoGetter = namespace("todos", Getter);
+const TodoMutation = namespace("todos", Mutation);
+const TodoAction = namespace("todos", Action);
+const LoginMutation = namespace("login", Mutation);
 @Component
 export default class TestComponent extends Vue {
   @State login!: LoginState;
-  @Getter todos!: Todo[];
-  @Getter dones!: Todo[];
-  @Mutation("login") loginMutation: any;
-  @Mutation addTodo: any;
-  @Mutation toggleTodo: any;
-  @Action addTodoAsync: any;
+  @TodoGetter todos!: Todo[];
+  @TodoGetter dones!: Todo[];
+  @LoginMutation("login") loginMutation: any;
+  @TodoMutation addTodo: any;
+  @TodoMutation toggleTodo: any;
+  @TodoAction addTodoAsync: any;
   newTodo: Todo = {
     text: "",
     checked: false,

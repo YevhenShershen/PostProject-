@@ -1,5 +1,5 @@
-import { GetterTree, MutationTree } from "vuex";
-import { LoginState } from "./types";
+import { GetterTree, MutationTree, Module } from "vuex";
+import { RootState, LoginState } from "./types";
 const state: LoginState = {
   user: "",
   IsLoggedIn: false,
@@ -10,7 +10,8 @@ const mutations: MutationTree<LoginState> = {
     state.user = "ALex";
   },
 };
-export const login = {
+export const login: Module<LoginState, RootState> = {
   state,
   mutations,
+  namespaced: true,
 };
