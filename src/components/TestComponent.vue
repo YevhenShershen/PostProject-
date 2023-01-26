@@ -4,13 +4,27 @@
     <div>
       <h1>Todos</h1>
       <ul>
-        <li v-for="todo in todos" :key="todo.text">{{ todo.text }}</li>
+        <li v-for="todo in todos" :key="todo.text">
+          <input
+            type="checkbox"
+            :checked="todo.checked"
+            @change="toggleTodo(todo)"
+          />
+          {{ todo.text }}
+        </li>
       </ul>
     </div>
     <div>
       <h1>Dones</h1>
       <ul>
-        <li v-for="todo in dones" :key="todo.text">{{ todo.text }}</li>
+        <li v-for="done in dones" :key="done.text">
+          <input
+            type="checkbox"
+            :checked="done.checked"
+            @change="toggleTodo(done)"
+          />
+          {{ done.text }}
+        </li>
       </ul>
     </div>
     <p>
@@ -46,6 +60,7 @@ export default class TestComponent extends Vue {
   @Getter todos!: Todo[];
   @Getter dones!: Todo[];
   @Mutation addTodo: any;
+  @Mutation toggleTodo: any;
   @Action addTodoAsync: any;
   newTodo: Todo = {
     text: "",

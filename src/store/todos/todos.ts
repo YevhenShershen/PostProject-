@@ -24,6 +24,9 @@ export const mutations: MutationTree<State> = {
   addTodo(state, newTodo) {
     state.todos.push(newTodo);
   },
+  toggleTodo(state, todo) {
+    todo.checked = !todo.checked;
+  },
 };
 export const actions: ActionTree<State, any> = {
   addTodoAsync({ commit }, id) {
