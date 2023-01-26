@@ -1,6 +1,11 @@
 <template>
   <div>
-    <h1>Test Component</h1>
+    <h1 class="test-title">Test Component</h1>
+    <div>
+      <h2>Login</h2>
+      <button v-if="!login.IsLoggedIn" @click="loginMutation">Login</button>
+      <p v-else>Hello{{ login.user }}</p>
+    </div>
     <div>
       <h1>Todos</h1>
       <ul>
@@ -45,20 +50,20 @@
         @keyup.enter="addTodoAsync(id)"
       />
     </p>
-    <h1>{{ todos2 }}</h1>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 
-import { Todo } from "@/store/todos/types";
+import { Todo, LoginState } from "@/store/todos/types";
 import { State, Getter, Mutation, Action } from "vuex-class";
 @Component
 export default class TestComponent extends Vue {
-  @State("todos") todos2!: Todo[];
+  @State login!: LoginState;
   @Getter todos!: Todo[];
   @Getter dones!: Todo[];
+  @Mutation("login") loginMutation: any;
   @Mutation addTodo: any;
   @Mutation toggleTodo: any;
   @Action addTodoAsync: any;
@@ -70,4 +75,8 @@ export default class TestComponent extends Vue {
 }
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+// .test-title {
+//   color: $buttonAgree;
+// }
+</style>
