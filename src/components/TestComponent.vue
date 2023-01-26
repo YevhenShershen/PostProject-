@@ -13,12 +13,24 @@
         <li v-for="todo in dones" :key="todo.text">{{ todo.text }}</li>
       </ul>
     </div>
-    <input
-      type="text"
-      placeholder="some text"
-      v-model="newTodo.text"
-      @keyup.enter="addTodo(newTodo)"
-    />
+    <p>
+      Add todo:
+      <input
+        type="text"
+        placeholder="some text"
+        v-model="newTodo.text"
+        @keyup.enter="addTodo(newTodo)"
+      />
+    </p>
+    <p>
+      Add todo Async:
+      <input
+        type="text"
+        placeholder="some text"
+        v-model="id"
+        @keyup.enter="addTodoAsync(id)"
+      />
+    </p>
     <h1>{{ todos2 }}</h1>
   </div>
 </template>
@@ -27,17 +39,19 @@
 import { Component, Vue } from "vue-property-decorator";
 
 import { Todo } from "@/store/todos/types";
-import { State, Getter, Mutation } from "vuex-class";
+import { State, Getter, Mutation, Action } from "vuex-class";
 @Component
 export default class TestComponent extends Vue {
   @State("todos") todos2!: Todo[];
   @Getter todos!: Todo[];
   @Getter dones!: Todo[];
   @Mutation addTodo: any;
+  @Action addTodoAsync: any;
   newTodo: Todo = {
     text: "",
     checked: false,
   };
+  id = "1";
 }
 </script>
 

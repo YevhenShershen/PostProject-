@@ -4,7 +4,7 @@ import { companyInformation } from "@/store/company-information/company-informat
 import { employees } from "@/store/employees/employees";
 import { navigation } from "@/store/navigation/navigation";
 import { todos } from "@/store/todos/todos";
-import { state, getters, mutations } from "@/store/todos/todos";
+import { state, getters, mutations, actions } from "@/store/todos/todos";
 Vue.use(Vuex);
 const store: StoreOptions<any> = {
   state: {},
@@ -14,4 +14,5 @@ export default new Vuex.Store({
   state,
   getters,
   mutations,
+  actions,
 });
