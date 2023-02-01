@@ -1,4 +1,4 @@
-import { RootState, TodoState, Todo } from "./types";
+import { RootState, TodoState, Todo } from "@/store/types";
 import { GetterTree, MutationTree, ActionTree, Module } from "vuex";
 type TodoGetter = GetterTree<TodoState, RootState>;
 export const state: TodoState = {
