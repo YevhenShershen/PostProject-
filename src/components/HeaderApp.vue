@@ -6,8 +6,8 @@
         <v-spacer></v-spacer>
         <div class="header_menu">
           <router-link
-            v-for="link in navigation.navigations"
-            :key="`${link.name}-header-link`"
+            v-for="(link, index) in mainNavigation"
+            :key="`${index}-header-link`"
             :to="{ name: link.name }"
             class="btn-test"
           >
@@ -34,14 +34,11 @@
               </template>
               <v-list class="list header_mobile-menu">
                 <v-list-item
-                  v-for="(item, index) in navigation.navigations"
-                  :key="index"
+                  v-for="(item, index) in mainNavigation"
+                  :key="`${index}-header-link`"
                 >
                   <v-list-item-title>
-                    <router-link
-                      :key="`${item.name}-header-link`"
-                      :to="{ name: item.name }"
-                    >
+                    <router-link :to="{ name: item.name }">
                       {{ item.title }}</router-link
                     ></v-list-item-title
                   >
@@ -57,20 +54,21 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import { Navigations } from "@/store/types";
-import { State } from "vuex-class";
+import { Getter, namespace } from "vuex-class";
+import { Navigation } from "@/store/types";
+const MainNavigationGetter = namespace("navigation", Getter);
 @Component
 export default class HeaderApp extends Vue {
-  @State navigation!: Navigations;
+  @MainNavigationGetter mainNavigation!: Navigation[];
 }
 </script>
 <style lang="scss" scoped>
-@media (max-width: 600px) {
+@media (max-width: 1263px) {
   .header_menu {
     display: none;
   }
 }
-@media (min-width: 600px) {
+@media (min-width: 1263px) {
   .header_mobile-menu {
     display: none;
   }

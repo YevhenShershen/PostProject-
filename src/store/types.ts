@@ -4,6 +4,7 @@ export interface RootState {
   count: Count;
   todos: TodoState;
   login: LoginState;
+  companyInformation: ICompanyInformation;
 }
 export interface UserState {
   name: string;
@@ -40,4 +41,17 @@ export interface LoginState {
 export interface Todo {
   text: string;
   checked: boolean;
+}
+
+export interface ICompanyInformation {
+  name: string;
+  street: string;
+  number: string;
+  city: string;
+  code: string;
+  country: string;
+  phoneNumber: string;
+  email: string;
+  webPage: string;
+  workTime: string;
 }

@@ -5,7 +5,7 @@ const state: Navigations = {
     {
       title: "Strona główna",
       name: "MainPage",
-      services: true,
+      services: false,
     },
     {
       title: "Strony internetowe",
@@ -22,6 +22,11 @@ const state: Navigations = {
       title: "Naprawa, modernizacja stron",
       name: "/repair-pages",
       services: true,
+    },
+    {
+      title: "Usługi",
+      name: "Services",
+      services: false,
     },
     {
       title: "O nas",
@@ -48,6 +53,8 @@ const state: Navigations = {
 export const getters: GetterTree<Navigations, RootState> = {
   services: (state) =>
     state.navigations.filter((navigation) => navigation.services),
+  mainNavigation: (state) =>
+    state.navigations.filter((navigation) => !navigation.services),
 };
 export const navigation: Module<Navigations, RootState> = {
   state,
