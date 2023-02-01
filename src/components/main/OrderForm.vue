@@ -45,10 +45,7 @@
             </v-col>
             <div class="order_textarea-field">
               <textarea
-                name=""
-                id=""
-                cols="30"
-                rows="10"
+                rows="8"
                 placeholder="Twoja wiadomość"
                 class="order_textarea"
               ></textarea>
@@ -86,7 +83,7 @@
 import { Component, Vue } from "vue-property-decorator";
 @Component
 export default class OrderForm extends Vue {
-  company = this.$store.state.companyInformation.company;
+  company = this.$store.state.companyInformation;
 }
 </script>
 <style lang="scss" scoped>

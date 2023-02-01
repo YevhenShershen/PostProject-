@@ -23,7 +23,7 @@ Vue.config.productionTip = false;
 //
 
 const load = true;
-if (!load) {
+if (load) {
   import("./store/todos/login").then(({ login }) => {
     store.registerModule("login", login);
   });

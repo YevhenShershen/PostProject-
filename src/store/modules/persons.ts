@@ -1,5 +1,4 @@
-import { IPersonInfo } from "@/services/models/IPerson-info.model";
-//1)объявление переменной ersons
+//1)объявление переменной persons
 //2) получение данных с  помощью actions с бекэнда
 //3) ctx.commit("updatePersons", persons); апдейт нашей переменной и присваивание данных которые получили с помощью функции в mutations
 //4) с помощью getters мы получаем данные с store
@@ -11,18 +10,18 @@ export const persons = {
   mutations: {
     //обновления данных в store через мутацию при
     //первый параметр это state, а второу то что передаем
-    updatePersons(state: any, persons: []) {
+    updatePersons(state: any, persons: any) {
       state.persons = persons;
     },
-    createPost(state: any, newPerson: any) {
-      console.log("changePerson");
-      state.persons.unshift(newPerson);
-    },
-    changePerson(state: any) {
-      console.log(123);
-      // state.personInformation = payload
-      // state.persons = state.persons.persons.slice(indx, 1, person);
-    },
+    // createPost(state: any, newPerson: any) {
+    //   console.log("changePerson");
+    //   state.persons.unshift(newPerson);
+    // },
+    // changePerson(state: any) {
+    //   console.log(123);
+    //   // state.personInformation = payload
+    //   // state.persons = state.persons.persons.slice(indx, 1, person);
+    // },
   },
   actions: {
     //принимаем данные с бекэнда
