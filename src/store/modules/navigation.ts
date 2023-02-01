@@ -3,39 +3,44 @@ import { RootState, Navigations } from "@/store/types";
 const state: Navigations = {
   navigations: [
     {
-      label: "Strony internetowe",
-      url: "/web-pages",
+      title: "Strona główna",
+      name: "MainPage",
+      services: true,
+    },
+    {
+      title: "Strony internetowe",
+      name: "AboutUs",
       services: true,
     },
 
     {
-      label: "Sklepy internetowe",
-      url: "/web-shops",
+      title: "Sklepy internetowe",
+      name: "/web-shops",
       services: true,
     },
     {
-      label: "Naprawa, modernizacja stron",
-      url: "/repair-pages",
+      title: "Naprawa, modernizacja stron",
+      name: "/repair-pages",
       services: true,
     },
     {
-      label: "O nas",
-      url: "/about-us",
+      title: "O nas",
+      name: "AboutUs",
       services: false,
     },
     {
-      label: "Kontakt",
-      url: "/contact",
+      title: "Kontakt",
+      name: "/contact",
       services: false,
     },
     {
-      label: "Login",
-      url: "/login",
+      title: "Login",
+      name: "Login",
       services: false,
     },
     {
-      label: "TestComponent",
-      url: "/work-desk",
+      title: "Testowy Component",
+      name: "TestComponent",
       services: false,
     },
   ],

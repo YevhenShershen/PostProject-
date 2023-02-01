@@ -50,21 +50,29 @@
         @keyup.enter="addTodoAsync(id)"
       />
     </p>
+    <div>
+      <h1>{{ dones }}</h1>
+      <h1>Count: {{ count.count }}</h1>
+      <button class="primary" @click="countIcrement">Count Increment</button>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 
-import { Todo, LoginState } from "@/store/todos/types";
+import { Todo, LoginState, Count } from "@/store/types";
 import { State, Getter, Mutation, Action, namespace } from "vuex-class";
 
 const TodoGetter = namespace("todos", Getter);
 const TodoMutation = namespace("todos", Mutation);
 const TodoAction = namespace("todos", Action);
 const LoginMutation = namespace("login", Mutation);
+const CountMutation = namespace("count", Mutation);
 @Component
 export default class TestComponent extends Vue {
+  @State count!: Count;
+  @CountMutation countIcrement: any;
   @State login!: LoginState;
   @TodoGetter todos!: Todo[];
   @TodoGetter dones!: Todo[];

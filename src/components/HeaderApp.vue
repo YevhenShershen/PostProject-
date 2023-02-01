@@ -4,19 +4,52 @@
       ><v-col cols="10" class="d-flex">
         <v-toolbar-title>TUTAJ MA BYĆ LOGIN FIRMY</v-toolbar-title>
         <v-spacer></v-spacer>
-        <v-btn
-          class="btn-test"
-          v-for="link in navigation.navigations"
-          :key="`${link.label}-header-link`"
-          text
-        >
-          <router-link :to="{ name: link.url }">{{
-            link.label
-          }}</router-link></v-btn
-        >
-        <v-btn class="btn-test" text
-          ><v-app-bar-nav-icon></v-app-bar-nav-icon
-        ></v-btn>
+        <div class="header_menu">
+          <router-link
+            v-for="link in navigation.navigations"
+            :key="`${link.name}-header-link`"
+            :to="{ name: link.name }"
+            class="btn-test"
+          >
+            <v-btn class="btn-test" text> {{ link.title }}</v-btn></router-link
+          >
+        </div>
+        <!-- Mobile Menu -->
+        <template>
+          <div class="text-center header_mobile-menu">
+            <v-menu>
+              <template v-slot:activator="{ on: menu, attrs }">
+                <v-tooltip bottom>
+                  <template v-slot:activator="{ on: tooltip }">
+                    <v-btn
+                      class="btn-test"
+                      text
+                      v-bind="attrs"
+                      v-on="{ ...tooltip, ...menu }"
+                      ><v-app-bar-nav-icon></v-app-bar-nav-icon
+                    ></v-btn>
+                  </template>
+                  <span>Menu</span>
+                </v-tooltip>
+              </template>
+              <v-list class="list header_mobile-menu">
+                <v-list-item
+                  v-for="(item, index) in navigation.navigations"
+                  :key="index"
+                >
+                  <v-list-item-title>
+                    <router-link
+                      :key="`${item.name}-header-link`"
+                      :to="{ name: item.name }"
+                    >
+                      {{ item.title }}</router-link
+                    ></v-list-item-title
+                  >
+                </v-list-item>
+              </v-list>
+            </v-menu>
+          </div>
+        </template>
       </v-col>
     </v-row>
   </v-app-bar>
@@ -31,4 +64,18 @@ export default class HeaderApp extends Vue {
   @State navigation!: Navigations;
 }
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@media (max-width: 600px) {
+  .header_menu {
+    display: none;
+  }
+}
+@media (min-width: 600px) {
+  .header_mobile-menu {
+    display: none;
+  }
+}
+.list {
+  width: 100%;
+}
+</style>

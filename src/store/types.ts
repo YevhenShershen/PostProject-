@@ -18,8 +18,8 @@ export interface UserState {
   workTime: string;
 }
 export interface Navigation {
-  label: string;
-  url: string;
+  title: string;
+  name: string;
   services: boolean;
 }
 export interface Navigations {

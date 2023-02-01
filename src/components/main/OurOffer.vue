@@ -5,7 +5,7 @@
       <v-col
         v-for="(item, id) in services"
         :key="id"
-        :to="item.url"
+        :to="item.name"
         class="our-offer_card"
         xl="3"
         lg="3"
@@ -19,10 +19,16 @@
             alt=""
             class="our-offer_photo"
           />
-          <p class="our-offer_text">{{ item.label }}</p>
-          <a href="">
-            <button class="our-offer_but app-btn">Sprawdź ofertę</button>
-          </a>
+          <p class="our-offer_text">{{ item.title }}</p>
+          <router-link
+            :key="`${item.name}-header-link`"
+            :to="{ name: item.name }"
+            class="btn-test"
+          >
+            <button class="our-offer_but app-btn" text>
+              Sprawdź ofertę
+            </button></router-link
+          >
         </div>
       </v-col>
     </v-row>
