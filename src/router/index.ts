@@ -15,9 +15,34 @@ const routes: Array<RouteConfig> = [
     component: () => import("../components/about-us/AboutUs.vue"),
   },
   {
+    path: "/repair-pages",
+    name: "RepairPages",
+    component: () => import("../components/repair-pages/RepairPages.vue"),
+  },
+  {
+    path: "/web-pages",
+    name: "WebPages",
+    component: () => import("../components/web-pages/WebPages.vue"),
+  },
+  {
+    path: "/web-shops",
+    name: "WebShops",
+    component: () => import("../components/web-shops/WebShops.vue"),
+  },
+  {
+    path: "/services",
+    name: "Services",
+    component: () => import("../components/services/Services.vue"),
+  },
+  {
     path: "/login",
     name: "Login",
     component: () => import("../components/Login.vue"),
+  },
+  {
+    path: "/contact",
+    name: "Contact",
+    component: () => import("../components/contact/Contact.vue"),
   },
   {
     path: "/work-desk",

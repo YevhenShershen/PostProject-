@@ -9,18 +9,18 @@ const state: Navigations = {
     },
     {
       title: "Strony internetowe",
-      name: "AboutUs",
+      name: "WebPages",
       services: true,
     },
 
     {
       title: "Sklepy internetowe",
-      name: "/web-shops",
+      name: "WebShops",
       services: true,
     },
     {
       title: "Naprawa, modernizacja stron",
-      name: "/repair-pages",
+      name: "RepairPages",
       services: true,
     },
     {
@@ -35,7 +35,7 @@ const state: Navigations = {
     },
     {
       title: "Kontakt",
-      name: "/contact",
+      name: "Contact",
       services: false,
     },
     {
