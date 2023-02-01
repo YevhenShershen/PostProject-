@@ -3,9 +3,9 @@
     <h2 class="our-offer_title app-title main-title">NASZA OFERTA</h2>
     <v-row class="justify-space-around">
       <v-col
-        v-for="(serv, id) in services"
+        v-for="(item, id) in services"
         :key="id"
-        :to="serv.url"
+        :to="item.url"
         class="our-offer_card"
         xl="3"
         lg="3"
@@ -19,7 +19,7 @@
             alt=""
             class="our-offer_photo"
           />
-          <p class="our-offer_text">{{ serv.label }}</p>
+          <p class="our-offer_text">{{ item.label }}</p>
           <a href="">
             <button class="our-offer_but app-btn">Sprawdź ofertę</button>
           </a>
@@ -31,9 +31,12 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
+import { Getter, namespace } from "vuex-class";
+import { Navigation } from "@/store/types";
+const NavigationGetter = namespace("navigation", Getter);
 @Component
 export default class OurOffer extends Vue {
-  services = this.$store.state.servicesNav;
+  @NavigationGetter services!: Navigation[];
 }
 </script>
 <style lang="scss" scoped>
