@@ -1,10 +1,11 @@
 export interface RootState {
   navigations: Navigations;
+  companyInformation: ICompanyInformation;
+  employees: Employees;
   //TEST COMPONENT
   count: Count;
   todos: TodoState;
   login: LoginState;
-  companyInformation: ICompanyInformation;
 }
 export interface UserState {
   name: string;
@@ -54,4 +55,31 @@ export interface ICompanyInformation {
   email: string;
   webPage: string;
   workTime: string;
+}
+
+export interface Employee {
+  id: number;
+  name: string;
+  username: string;
+  email: string;
+  address: {
+    street2: string;
+    suite: string;
+    city: string;
+    zipcode: string;
+    geo: {
+      lat: string;
+      lng: string;
+    };
+  };
+  phone: string;
+  website: string;
+  company: {
+    name: string;
+    catchPhrase: string;
+    bs: string;
+  };
+}
+export interface Employees {
+  employees: Employee[];
 }
