@@ -21,9 +21,9 @@
           />
           <p class="our-offer_text">{{ item.title }}</p>
           <router-link
+            class="text-decoration-none"
             :key="`${item.name}-header-link`"
             :to="{ name: item.name }"
-            class="btn-test"
           >
             <button class="our-offer_but app-btn" text>
               Sprawdź ofertę

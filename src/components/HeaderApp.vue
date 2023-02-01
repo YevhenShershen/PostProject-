@@ -6,12 +6,12 @@
         <v-spacer></v-spacer>
         <div class="header_menu">
           <router-link
+            class="text-decoration-none"
             v-for="(link, index) in mainNavigation"
             :key="`${index}-header-link`"
             :to="{ name: link.name }"
-            class="btn-test"
           >
-            <v-btn class="btn-test" text> {{ link.title }}</v-btn></router-link
+            <v-btn text> {{ link.title }}</v-btn></router-link
           >
         </div>
         <!-- Mobile Menu -->
@@ -21,11 +21,7 @@
               <template v-slot:activator="{ on: menu, attrs }">
                 <v-tooltip bottom>
                   <template v-slot:activator="{ on: tooltip }">
-                    <v-btn
-                      class="btn-test"
-                      text
-                      v-bind="attrs"
-                      v-on="{ ...tooltip, ...menu }"
+                    <v-btn text v-bind="attrs" v-on="{ ...tooltip, ...menu }"
                       ><v-app-bar-nav-icon></v-app-bar-nav-icon
                     ></v-btn>
                   </template>
@@ -38,7 +34,10 @@
                   :key="`${index}-header-link`"
                 >
                   <v-list-item-title>
-                    <router-link :to="{ name: item.name }">
+                    <router-link
+                      class="text-decoration-none"
+                      :to="{ name: item.name }"
+                    >
                       {{ item.title }}</router-link
                     ></v-list-item-title
                   >
