@@ -1,5 +1,5 @@
 <template>
-  <div class="about-us">
+  <div class="about-us mb-8">
     <h2 class="app-title main-title">Informacja o nas</h2>
     <div>
       <h2>O Firmie</h2>
@@ -15,15 +15,8 @@
     </div>
     <div>
       <h2 class="app-title main-title">informacje o naszym zespole</h2>
-      <!-- {{ employees }}
-      {{ $store.state.persons.persons }} -->
-
-      <v-row>
-        <PersonInfo
-          v-for="(employee, id) in employees"
-          :key="id"
-          :employee="employee"
-        ></PersonInfo>
+      <v-row justify="center">
+        <PersonsList></PersonsList>
       </v-row>
     </div>
   </div>
@@ -31,12 +24,10 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import PersonInfo from "./PersonInfo.vue";
+import PersonsList from "./PersonsList.vue";
 @Component({
-  components: { PersonInfo },
+  components: { PersonsList },
 })
-export default class AboutUs extends Vue {
-  public employees = this.$store.state.employees;
-}
+export default class AboutUs extends Vue {}
 </script>
 <style lang="scss" scoped></style>
