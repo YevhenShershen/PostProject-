@@ -19,11 +19,12 @@ import Vue from "vue";
 import HeaderApp from "./components/HeaderApp.vue";
 import Slider from "./components/main/Slider.vue";
 import FooterApp from "./components/FooterApp.vue";
+
 export default Vue.extend({
   name: "App",
   components: { HeaderApp, Slider, FooterApp },
   mounted() {
-    this.$store.dispatch("loadEmployeesList");
+    this.$store.dispatch("employees/loadEmployeesList");
   },
 });
 </script>
