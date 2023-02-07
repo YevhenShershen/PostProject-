@@ -2,7 +2,7 @@
   <v-app-bar app color="primary" dense dark>
     <v-row class="d-flex justify-center"
       ><v-col cols="10" class="d-flex">
-        <v-toolbar-title>TUTAJ MA BYĆ LOGIN FIRMY</v-toolbar-title>
+        <v-toolbar-title>{{ companyInformation.name }}</v-toolbar-title>
         <v-spacer></v-spacer>
         <div class="header_menu">
           <router-link
@@ -55,10 +55,19 @@
 import { Component, Vue } from "vue-property-decorator";
 import { Getter, namespace } from "vuex-class";
 import { Navigation } from "@/store/types";
+import { ICompanyInformation } from "@/store/types";
+import { mapGetters } from "vuex";
 const MainNavigationGetter = namespace("navigation", Getter);
-@Component
+@Component({
+  computed: {
+    ...mapGetters({
+      companyInformation: "companyInformation/COMPANY_INFORMATION",
+    }),
+  },
+})
 export default class HeaderApp extends Vue {
   @MainNavigationGetter mainNavigation!: Navigation[];
+  public companyInformation!: ICompanyInformation;
 }
 </script>
 <style lang="scss" scoped>

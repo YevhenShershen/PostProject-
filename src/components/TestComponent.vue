@@ -54,6 +54,7 @@
       <h1>{{ dones }}</h1>
       <h1>Count: {{ count.count }}</h1>
       <button class="primary" @click="countIcrement">Count Increment</button>
+      <h2>{{ employees }}</h2>
     </div>
   </div>
 </template>
@@ -61,7 +62,7 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 
-import { Todo, LoginState, Count } from "@/store/types";
+import { Todo, LoginState, Count, Employees } from "@/store/types";
 import { State, Getter, Mutation, Action, namespace } from "vuex-class";
 
 const TodoGetter = namespace("todos", Getter);
@@ -71,6 +72,7 @@ const LoginMutation = namespace("login", Mutation);
 const CountMutation = namespace("count", Mutation);
 @Component
 export default class TestComponent extends Vue {
+  @State employees!: Employees;
   @State count!: Count;
   @CountMutation countIcrement: any;
   @State login!: LoginState;

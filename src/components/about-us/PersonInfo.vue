@@ -1,14 +1,12 @@
 <template>
   <v-col>
-    <p>{{ employee }}</p>
+    <h1>PERSON INFO</h1>
   </v-col>
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from "vue-property-decorator";
+import { Vue, Component } from "vue-property-decorator";
 @Component
-export default class PersonInfo extends Vue {
-  @Prop({ required: true }) readonly employee!: any;
-}
+export default class PersonInfo extends Vue {}
 </script>
 <style lang="scss" scoped></style>

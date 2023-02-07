@@ -9,7 +9,7 @@
   >
     <div class="card d-flex flex-column align-center">
       <p class="card_company-name">
-        {{ CompanyInformation.name }}
+        {{ companyInformation.name }}
       </p>
       <img
         alt=""
@@ -32,14 +32,14 @@ import { mapGetters } from "vuex";
 @Component({
   computed: {
     ...mapGetters({
-      CompanyInformation: "companyInformation/COMPANY_INFORMATION",
+      companyInformation: "companyInformation/COMPANY_INFORMATION",
     }),
   },
 })
 export default class PersonInfo extends Vue {
   @Prop({ required: true }) readonly employee!: Employee;
   public profession = "programista";
-  public CompanyInformation!: ICompanyInformation;
+  public companyInformation!: ICompanyInformation;
 }
 </script>
 <style lang="scss" scoped>
