@@ -1,5 +1,5 @@
 import { RootState, Employees } from "@/store/types";
-import { ActionTree, Module, MutationTree } from "vuex";
+import { GetterTree, ActionTree, Module, MutationTree } from "vuex";
 
 export const state: Employees = {
   employees: [],
@@ -11,9 +11,10 @@ export const actions: ActionTree<Employees, RootState> = {
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((data) => data.json())
       .then((data) => {
-        console.log(data);
         commit("updateEmployees", data);
-        return data;
+      })
+      .catch((error) => {
+        console.log(error);
       });
   },
 };
@@ -22,8 +23,15 @@ export const mutations: MutationTree<Employees> = {
     state.employees = employees;
   },
 };
+export const getters: GetterTree<Employees, RootState> = {
+  EMPLOYEES(state) {
+    return state.employees;
+  },
+};
 export const employees: Module<Employees, RootState> = {
   state,
   actions,
+  getters,
+  mutations,
   namespaced: true,
 };
