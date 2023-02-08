@@ -49,6 +49,11 @@ const routes: Array<RouteConfig> = [
     name: "TestComponent",
     component: () => import("../components/TestComponent.vue"),
   },
+  {
+    path: "/employee/id/:id",
+    name: "PersonInfo",
+    component: () => import("../components/about-us/PersonInfo.vue"),
+  },
 ];
 
 const router = new VueRouter({

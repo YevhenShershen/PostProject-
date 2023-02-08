@@ -24,8 +24,15 @@ export const mutations: MutationTree<Employees> = {
   },
 };
 export const getters: GetterTree<Employees, RootState> = {
-  EMPLOYEES(state) {
+  getEmployees(state) {
     return state.employees;
+  },
+  getEmployeeById: (state) => (id: any) => {
+    return state.employees.find((employee) => employee.id === id);
+  },
+  getEmployee(_, getters) {
+    console.log(getters.getEmployeeId);
+    return getters.getEmployeeId;
   },
 };
 export const employees: Module<Employees, RootState> = {

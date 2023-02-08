@@ -7,21 +7,26 @@
     xs="12"
     class="d-flex justify-space-around"
   >
-    <div class="card d-flex flex-column align-center">
-      <p class="card_company-name">
-        {{ companyInformation.name }}
-      </p>
-      <img
-        alt=""
-        class="card_personal-photo"
-        src="~@/assets/images/employees/employee.jpg"
-      />
-      <p class="card_personal-name">{{ employee.name }}</p>
-      <p class="card_personal-profession">{{ profession }}</p>
-      <p class="card_personal-information">ID:{{ employee.id }}</p>
-      <p class="card_personal-information">EMAIL:{{ employee.email }}</p>
-      <p class="card_personal-information">TEL:{{ employee.phone }}</p>
-    </div>
+    <router-link
+      :to="`/employee/id/${employee.id}`"
+      class="text-decoration-none"
+    >
+      <div class="card d-flex flex-column align-center">
+        <p class="card_company-name">
+          {{ companyInformation.name }}
+        </p>
+        <img
+          alt=""
+          class="card_personal-photo"
+          src="~@/assets/images/employees/employee.jpg"
+        />
+        <p class="card_personal-name">{{ employee.name }}</p>
+        <p class="card_personal-profession">{{ profession }}</p>
+        <p class="card_personal-information">ID:{{ employee.id }}</p>
+        <p class="card_personal-information">EMAIL:{{ employee.email }}</p>
+        <p class="card_personal-information">TEL:{{ employee.phone }}</p>
+      </div>
+    </router-link>
   </v-col>
 </template>
 
@@ -36,7 +41,7 @@ import { mapGetters } from "vuex";
     }),
   },
 })
-export default class PersonInfo extends Vue {
+export default class Card extends Vue {
   @Prop({ required: true }) readonly employee!: Employee;
   public profession = "programista";
   public companyInformation!: ICompanyInformation;
