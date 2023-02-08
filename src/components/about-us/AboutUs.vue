@@ -15,9 +15,7 @@
     </div>
     <div>
       <h2 class="app-title main-title">informacje o naszym zespole</h2>
-      <v-row justify="center">
-        <PersonsList></PersonsList>
-      </v-row>
+      <PersonsList></PersonsList>
     </div>
   </div>
 </template>

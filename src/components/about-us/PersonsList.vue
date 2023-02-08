@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-row>
+    <v-row class="d-flex justify-space-around">
       <Card
         v-for="(item, id) in employees.slice(0, startElement)"
         :key="`card-${id}`"
