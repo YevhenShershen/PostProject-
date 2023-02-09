@@ -3,6 +3,7 @@ import { GetterTree, ActionTree, Module, MutationTree } from "vuex";
 
 export const state: Employees = {
   employees: [],
+  employee: null,
 };
 
 const URL = "https://jsonplaceholder.typicode.com/users";
@@ -17,22 +18,31 @@ export const actions: ActionTree<Employees, RootState> = {
         console.log(error);
       });
   },
+  loadEmployee({ commit }, id = 1) {
+    fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
+      .then((data) => data.json())
+      .then((data) => {
+        commit("updateEmployee", data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
 };
 export const mutations: MutationTree<Employees> = {
   updateEmployees(state, employees) {
     state.employees = employees;
+  },
+  updateEmployee(state, employee) {
+    state.employee = employee;
   },
 };
 export const getters: GetterTree<Employees, RootState> = {
   getEmployees(state) {
     return state.employees;
   },
-  getEmployeeById: (state) => (id: any) => {
-    return state.employees.find((employee) => employee.id === id);
-  },
-  getEmployee(_, getters) {
-    console.log(getters.getEmployeeId);
-    return getters.getEmployeeId;
+  getEmployee(state) {
+    return state.employee;
   },
 };
 export const employees: Module<Employees, RootState> = {

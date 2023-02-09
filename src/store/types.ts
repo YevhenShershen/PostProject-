@@ -82,4 +82,5 @@ export interface Employee {
 }
 export interface Employees {
   employees: Employee[];
+  employee: null | Employee;
 }
