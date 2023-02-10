@@ -7,7 +7,7 @@
         <div class="header_menu">
           <router-link
             class="text-decoration-none"
-            v-for="(link, index) in mainNavigation"
+            v-for="(link, index) in GET_MAIN_NAVIGATION"
             :key="`${index}-header-link`"
             :to="{ name: link.name }"
           >
@@ -30,7 +30,7 @@
               </template>
               <v-list class="list header_mobile-menu">
                 <v-list-item
-                  v-for="(item, index) in mainNavigation"
+                  v-for="(item, index) in GET_MAIN_NAVIGATION"
                   :key="`${index}-header-link`"
                 >
                   <v-list-item-title>
@@ -66,7 +66,7 @@ const MainNavigationGetter = namespace("navigation", Getter);
   },
 })
 export default class HeaderApp extends Vue {
-  @MainNavigationGetter mainNavigation!: Navigation[];
+  @MainNavigationGetter GET_MAIN_NAVIGATION!: Navigation[];
   public companyInformation!: ICompanyInformation;
 }
 </script>

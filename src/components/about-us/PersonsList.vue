@@ -2,10 +2,9 @@
   <div>
     <v-row class="d-flex justify-space-around">
       <Card
-        v-for="(item, id) in employees.slice(0, elements)"
+        v-for="(item, id) in nextEmployees"
         :key="`card-${id}`"
         :employee="item"
-        @click="getEmployeeById(item.id)"
       ></Card>
     </v-row>
     <div class="d-flex justify-center">
@@ -23,26 +22,28 @@
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
 import Card from "@/components/about-us/Card.vue";
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 import { Employees, Employee } from "@/store/types";
 @Component({
   components: { Card },
   computed: {
     ...mapGetters({
-      employees: "employees/getEmployees",
-      getEmployeeById: "employees/getEmployeeById",
+      employees: "employees/GET_EMPLOYEES",
       employee: "employees/getEmployee",
     }),
+    nextEmployees() {
+      return this.employees.slice(0, this.elements);
+    },
   },
 })
 export default class PersonsList extends Vue {
-  public el = 0;
   public employees!: Employees;
   public employee!: Employee;
   public employees_list!: Employees;
   public elements = 3;
   public buttonShow = true;
   public employeesShowList = this.employees;
+
   addElementToList(): any {
     const employees_end = this.employees.length;
     if (this.elements + 3 < employees_end) {

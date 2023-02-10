@@ -3,7 +3,7 @@
     <h2 class="our-offer_title app-title main-title">NASZA OFERTA</h2>
     <v-row class="justify-space-around">
       <v-col
-        v-for="(item, id) in services"
+        v-for="(item, id) in GET_SERVICES"
         :key="id"
         :to="item.name"
         class="our-offer_card"
@@ -42,7 +42,7 @@ import { Navigation } from "@/store/types";
 const NavigationGetter = namespace("navigation", Getter);
 @Component
 export default class OurOffer extends Vue {
-  @NavigationGetter services!: Navigation[];
+  @NavigationGetter GET_SERVICES!: Navigation[];
 }
 </script>
 <style lang="scss" scoped>
