@@ -1,5 +1,5 @@
 <template>
-  <v-footer color="primary lighten-1" padless>
+  <v-footer color="primary lighten-1" padless class="footer">
     <v-row justify="center" no-gutters>
       <v-col class="primary lighten-1 py-4 text-center white--text" cols="12">
         <strong>Our contact e-mail: {{ getMessage }}</strong>
@@ -17,4 +17,8 @@ export default class FooterApp extends Vue {
   }
 }
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.footer {
+  margin-top: 30px;
+}
+</style>

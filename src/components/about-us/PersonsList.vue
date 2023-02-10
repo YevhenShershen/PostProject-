@@ -1,11 +1,17 @@
 <template>
   <div>
-    <v-row class="d-flex justify-space-around">
-      <Card
+    <v-row>
+      <v-col
+        xl="4"
+        lg="4"
+        md="5"
+        sm="12"
+        xs="12"
         v-for="(item, id) in nextEmployees"
         :key="`card-${id}`"
-        :employee="item"
-      ></Card>
+      >
+        <Card :employee="item" class="d-flex justify-space-around"></Card>
+      </v-col>
     </v-row>
     <div class="d-flex justify-center">
       <button
@@ -22,7 +28,7 @@
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
 import Card from "@/components/about-us/Card.vue";
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters } from "vuex";
 import { Employees, Employee } from "@/store/types";
 @Component({
   components: { Card },
@@ -58,5 +64,6 @@ export default class PersonsList extends Vue {
 <style lang="scss" scoped>
 .person-list_btn {
   min-width: 374px;
+  margin-top: 20px;
 }
 </style>

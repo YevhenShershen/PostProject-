@@ -1,5 +1,5 @@
 <template>
-  <div class="about-us mb-8">
+  <div class="about-us">
     <h2 class="app-title main-title">Informacja o nas</h2>
     <div>
       <h2>O Firmie</h2>

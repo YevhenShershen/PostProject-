@@ -3,7 +3,7 @@
     <h2 class="app-title main-title">Formularz kontaktowy</h2>
     <v-row>
       <v-col xl="4" lg="4" md="12" sm="12" class="order_company-info">
-        <h3 class="order_title">{{ company.name }} Sp. z o.o.</h3>
+        <h3 class="app-title2">{{ company.name }} Sp. z o.o.</h3>
         <p class="order_adress">
           ul. {{ company.street }} {{ company.number }}
         </p>
@@ -21,7 +21,7 @@
       </v-col>
       <v-col xl="6" lg="6" md="12" sm="12" class="order_contact-form">
         <form action="" class="order_form">
-          <h3 class="order_title text-center">Formularz kontaktowy</h3>
+          <h3 class="app-title2 text-center">Formularz kontaktowy</h3>
           <v-row no-gutters class="order_shell">
             <v-col xl="6" lg="12" md="12" sm="12" xs="12">
               <input type="text" placeholder="Firm" class="order_input" />
