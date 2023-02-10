@@ -1,33 +1,21 @@
 <template>
-  <v-col
-    xl="4"
-    lg="4"
-    md="5"
-    sm="12"
-    xs="12"
-    class="d-flex justify-space-around"
-  >
-    <router-link
-      :to="`/employee/id/${employee.id}`"
-      class="text-decoration-none"
-    >
-      <div class="card d-flex flex-column align-center">
-        <p class="card_company-name">
-          {{ companyInformation.name }}
-        </p>
-        <img
-          alt=""
-          class="card_personal-photo"
-          src="~@/assets/images/employees/employee.jpg"
-        />
-        <p class="card_personal-name">{{ employee.name }}</p>
-        <p class="card_personal-profession">{{ profession }}</p>
-        <p class="card_personal-information">ID:{{ employee.id }}</p>
-        <p class="card_personal-information">EMAIL:{{ employee.email }}</p>
-        <p class="card_personal-information">TEL:{{ employee.phone }}</p>
-      </div>
-    </router-link>
-  </v-col>
+  <router-link :to="`/employee/id/${employee.id}`" class="text-decoration-none">
+    <div class="card d-flex flex-column align-center">
+      <p class="card_company-name">
+        {{ companyInformation.name }}
+      </p>
+      <img
+        alt=""
+        class="card_personal-photo"
+        src="~@/assets/images/employees/employee.jpg"
+      />
+      <p class="card_personal-name">{{ employee.name }}</p>
+      <p class="card_personal-profession">{{ profession }}</p>
+      <p class="card_personal-information">ID:{{ employee.id }}</p>
+      <p class="card_personal-information">EMAIL:{{ employee.email }}</p>
+      <p class="card_personal-information">TEL:{{ employee.phone }}</p>
+    </div>
+  </router-link>
 </template>
 
 <script lang="ts">
