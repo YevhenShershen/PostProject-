@@ -4,22 +4,35 @@
 body {
   font-size: 20px;
 }
+//TITLES
 .app-title {
   margin-bottom: 15px;
   font-size: 32px;
 }
+.app-title2{
+  color: #373a3d;
+  font-size: 30px;
+  line-height: 30px;
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+//OTHER
 .app-title,
 p,
 li {
   color: #3a3d40;
 }
+.app-text{
+
+}
+
 .main-title {
   font-size: 42px !important;
   text-align: center;
   margin: 30px 0;
   text-transform: uppercase;
 }
-// Buttons styles
+// BUTTONS styles
 .app-btn {
   font-size: 32px;
   text-transform: uppercase;
