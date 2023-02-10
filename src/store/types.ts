@@ -2,6 +2,7 @@ export interface RootState {
   navigations: Navigations;
   companyInformation: ICompanyInformation;
   employees: Employees;
+  employee: GetEmployee;
   //TEST COMPONENT
   count: Count;
   todos: TodoState;
@@ -82,5 +83,7 @@ export interface Employee {
 }
 export interface Employees {
   employees: Employee[];
-  employee: null | Employee;
+}
+export interface GetEmployee {
+  employee: Employee | null;
 }

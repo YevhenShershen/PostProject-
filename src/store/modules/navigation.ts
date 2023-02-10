@@ -51,9 +51,9 @@ const state: Navigations = {
   ],
 };
 export const getters: GetterTree<Navigations, RootState> = {
-  services: (state) =>
+  GET_SERVICES: (state) =>
     state.navigations.filter((navigation) => navigation.services),
-  mainNavigation: (state) =>
+  GET_MAIN_NAVIGATION: (state) =>
     state.navigations.filter((navigation) => !navigation.services),
 };
 export const navigation: Module<Navigations, RootState> = {
