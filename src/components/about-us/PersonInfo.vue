@@ -3,7 +3,7 @@
     <h1 class="app-title main-title">Informacja o pracowniku firmy</h1>
     <v-row class="d-flex justify-center">
       <v-col>
-        <v-row>
+        <v-row class="d-flex justify-center">
           <Card :employee="employee"></Card>
           <v-col>
             <v-row class="d-flex flex-column ml-5">

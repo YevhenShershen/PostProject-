@@ -6,7 +6,6 @@
         <v-spacer></v-spacer>
         <div class="header_menu">
           <router-link
-            class="text-decoration-none"
             v-for="(link, index) in GET_MAIN_NAVIGATION"
             :key="`${index}-header-link`"
             :to="{ name: link.name }"
@@ -34,10 +33,7 @@
                   :key="`${index}-header-link`"
                 >
                   <v-list-item-title>
-                    <router-link
-                      class="text-decoration-none"
-                      :to="{ name: item.name }"
-                    >
+                    <router-link :to="{ name: item.name }">
                       {{ item.title }}</router-link
                     ></v-list-item-title
                   >

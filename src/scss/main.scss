@@ -1,15 +1,16 @@
 // $colors: (
 //   color1: #3a3d40,
 // );
-body {
-  font-size: 20px;
+//NULLING STYLES
+*a {
+  text-decoration: none;
 }
 //TITLES
 .app-title {
   margin-bottom: 15px;
   font-size: 32px;
 }
-.app-title2{
+.app-title2 {
   color: #373a3d;
   font-size: 30px;
   line-height: 30px;
@@ -17,15 +18,14 @@ body {
   margin-bottom: 30px;
 }
 //OTHER
+body {
+  font-size: 20px;
+}
 .app-title,
 p,
 li {
   color: #3a3d40;
 }
-.app-text{
-
-}
-
 .main-title {
   font-size: 42px !important;
   text-align: center;

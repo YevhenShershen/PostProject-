@@ -102,7 +102,6 @@ export default class OrderForm extends Vue {
 
   &_adress {
     margin: 0;
-    text-decoration: none;
   }
 
   &_contact-form {

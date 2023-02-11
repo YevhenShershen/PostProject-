@@ -1,11 +1,11 @@
 <template>
-  <router-link :to="`/employee/id/${employee.id}`" class="text-decoration-none">
+  <router-link :to="`/employee/id/${employee.id}`">
     <div class="card d-flex flex-column align-center">
       <p class="card_company-name">
         {{ companyInformation.name }}
       </p>
       <img
-        alt=""
+        alt="Elon-Mask"
         class="card_personal-photo"
         src="~@/assets/images/employees/employee.jpg"
       />

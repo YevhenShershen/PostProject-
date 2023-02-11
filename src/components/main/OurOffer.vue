@@ -16,12 +16,11 @@
         <div class="our-offer_field">
           <img
             src="~@/assets/images/services/services-shops.jpg"
-            alt=""
+            alt="services"
             class="our-offer_photo"
           />
           <p class="our-offer_text">{{ item.title }}</p>
           <router-link
-            class="text-decoration-none"
             :key="`${item.name}-header-link`"
             :to="{ name: item.name }"
           >
