@@ -46,7 +46,7 @@ import { Employee } from "@/store/types";
 })
 export default class PersonsList extends Vue {
   public employees!: Employee[];
-  private elementsToShow = 5;
+  private elementsToShow = 3;
   private readonly elementsToIncrement = 3;
 
   public get isButtonShowed(): boolean {

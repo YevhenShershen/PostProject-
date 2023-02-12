@@ -6,11 +6,11 @@ export const state: Employees = {
 };
 
 export const actions: ActionTree<Employees, RootState> = {
-  LOAD_EMPLOYEES_LIST({ commit }) {
+  loadEmployeesList({ commit }) {
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((data) => data.json())
       .then((data) => {
-        commit("SET_EMPLOYEES", data);
+        commit("setEmployees", data);
       })
       .catch((error) => {
         console.log(error);
@@ -18,7 +18,7 @@ export const actions: ActionTree<Employees, RootState> = {
   },
 };
 export const mutations: MutationTree<Employees> = {
-  SET_EMPLOYEES(state, employees) {
+  setEmployees(state, employees) {
     state.employees = employees;
   },
 };
