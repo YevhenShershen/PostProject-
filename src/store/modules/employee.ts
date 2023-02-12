@@ -7,15 +7,21 @@ export const state: GetEmployee = {
 
 const URL = "https://jsonplaceholder.typicode.com/users";
 export const actions: ActionTree<GetEmployee, RootState> = {
-  LOAD_EMPLOYEE({ commit }, id) {
-    fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
-      .then((data) => data.json())
-      .then((data) => {
-        commit("SET_EMPLOYEE", data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+  async loadEmployee({ commit }, id) {
+    try {
+      const res = await fetch(`${URL}/${id}`);
+      const data = await res.json();
+      const status = await res.status;
+      if (status !== 200) {
+        // TODO: Implement logger ;)
+        console.error("Error during loadEmployee: Wrong status code");
+        return;
+      }
+      commit("SET_EMPLOYEE", data);
+    } catch (error) {
+      // TODO: Implement logger ;)
+      console.error(error);
+    }
   },
 };
 export const mutations: MutationTree<GetEmployee> = {
@@ -24,7 +30,7 @@ export const mutations: MutationTree<GetEmployee> = {
   },
 };
 export const getters: GetterTree<GetEmployee, RootState> = {
-  GET_EMPLOYEE(state) {
+  getEmployee(state) {
     return state.employee;
   },
 };

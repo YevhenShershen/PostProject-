@@ -3,8 +3,8 @@
     <h1 class="app-title main-title">Informacja o pracowniku firmy</h1>
     <v-row class="d-flex justify-center">
       <v-col>
-        <v-row class="d-flex justify-center">
-          <Card :employee="employee"></Card>
+        <v-row v-if="employee" class="d-flex justify-center">
+          <Card :employee="employee" />
           <v-col>
             <v-row class="d-flex flex-column ml-5">
               <v-col xs="12"
@@ -13,11 +13,11 @@
                   <span class="person-info_title">Nazwa firmy:</span>
                   {{ employee.company.name }}
                 </p>
-                <p c>
+                <p>
                   <span class="person-info_title">Projekt:</span>
                   {{ employee.company.catchPhrase }}
                 </p>
-                <p c>
+                <p>
                   <span class="person-info_title">Opis:</span>
                   {{ employee.company.bs }}
                 </p>
@@ -28,15 +28,15 @@
                   <span class="person-info_title">Ulica:</span>
                   {{ employee.address.street }}
                 </p>
-                <p c>
+                <p>
                   <span class="person-info_title">Apartamenty:</span>
                   {{ employee.address.suite }}
                 </p>
-                <p c>
+                <p>
                   <span class="person-info_title">Miasto:</span>
                   {{ employee.address.city }}
                 </p>
-                <p c>
+                <p>
                   <span class="person-info_title">Kod pocztowy:</span>
                   {{ employee.address.zipcode }}
                 </p>
@@ -44,30 +44,38 @@
             </v-row>
           </v-col>
         </v-row>
+        <v-row v-else class="d-flex justify-center">
+          Employee not found!
+        </v-row>
       </v-col>
     </v-row>
   </div>
 </template>
-address": { "street": "Kulas Light", "suite": "Apt. 556", "city": "Gwenborough",
-"zipcode": "92998-3874", company": { "name": "Romaguera-Crona", "catchPhrase":
-"Multi-layered client-server neural-net", "bs": "harness real-time e-markets"
+
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
-import { mapGetters } from "vuex";
-import { Employee } from "@/store/types";
+import { mapActions, mapGetters } from "vuex";
+
 import Card from "@/components/about-us/Card.vue";
+
 @Component({
   components: { Card },
   computed: {
     ...mapGetters({
-      employee: "employee/GET_EMPLOYEE",
+      employee: "employee/getEmployee",
+    }),
+  },
+  methods: {
+    ...mapActions({
+      loadEmployee: "employee/loadEmployee",
     }),
   },
 })
 export default class PersonInfo extends Vue {
-  public employee!: Employee;
-  mounted() {
-    this.$store.dispatch("employee/LOAD_EMPLOYEE", this.$route.params.id);
+  // Define action from ...mapActions above
+  protected loadEmployee!: (id: string) => void;
+  private async mounted() {
+    await this.loadEmployee(this.$route.params.id);
   }
 }
 </script>

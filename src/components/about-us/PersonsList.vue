@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-row>
+    <v-row v-if="nextEmployees">
       <v-col
         xl="4"
         lg="4"
@@ -10,14 +10,18 @@
         v-for="(item, id) in nextEmployees"
         :key="`card-${id}`"
       >
-        <Card :employee="item" class="d-flex justify-space-around"></Card>
+        <Card
+          :is-link="true"
+          :employee="item"
+          class="d-flex justify-space-around"
+        />
       </v-col>
     </v-row>
     <div class="d-flex justify-center">
       <button
         class="app-btn person-list_btn"
-        v-if="buttonShow"
-        @click="addElementToList"
+        v-if="isButtonShowed"
+        @click="incrementElements"
       >
         Show more persons
       </button>
@@ -27,37 +31,34 @@
 
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
-import Card from "@/components/about-us/Card.vue";
 import { mapGetters } from "vuex";
-import { Employees, Employee } from "@/store/types";
+
+import Card from "@/components/about-us/Card.vue";
+import { Employee } from "@/store/types";
+
 @Component({
   components: { Card },
   computed: {
     ...mapGetters({
       employees: "employees/GET_EMPLOYEES",
-      employee: "employees/getEmployee",
     }),
-    nextEmployees() {
-      return this.employees.slice(0, this.elements);
-    },
   },
 })
 export default class PersonsList extends Vue {
-  public employees!: Employees;
-  public employee!: Employee;
-  public employees_list!: Employees;
-  public elements = 3;
-  public buttonShow = true;
-  public employeesShowList = this.employees;
+  public employees!: Employee[];
+  private elementsToShow = 5;
+  private readonly elementsToIncrement = 3;
 
-  addElementToList(): any {
-    const employees_end = this.employees.length;
-    if (this.elements + 3 < employees_end) {
-      return (this.elements += 3);
-    } else {
-      this.buttonShow = !this.buttonShow;
-      return (this.elements = this.employees.length);
-    }
+  public get isButtonShowed(): boolean {
+    return this.elementsToShow < this.employees.length;
+  }
+
+  public get nextEmployees(): Employee[] {
+    return this.employees.slice(0, this.elementsToShow);
+  }
+
+  public incrementElements(): void {
+    this.elementsToShow += this.elementsToIncrement;
   }
 }
 </script>
