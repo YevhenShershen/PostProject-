@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
 import MainPage from "../components/MainPage.vue";
+
 Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
@@ -50,7 +51,7 @@ const routes: Array<RouteConfig> = [
     component: () => import("../components/TestComponent.vue"),
   },
   {
-    path: "/employee/id/:id",
+    path: "/employee/:id",
     name: "PersonInfo",
     component: () => import("../components/about-us/PersonInfo.vue"),
   },
