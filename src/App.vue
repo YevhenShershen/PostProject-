@@ -24,7 +24,7 @@ export default Vue.extend({
   name: "App",
   components: { HeaderApp, Slider, FooterApp },
   mounted() {
-    this.$store.dispatch("employees/loadEmployeersList");
+    this.$store.dispatch("employees/loadEmployeesList");
   },
 });
 </script>
