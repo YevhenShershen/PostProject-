@@ -87,13 +87,13 @@ export default class OrderForm extends Vue {
 }
 </script>
 <style lang="scss" scoped>
+@import "../../styles/_variables.scss";
 .order {
   margin-bottom: 30px;
   &_company-info {
   }
-
   &_title {
-    color: #373a3d;
+    color: $colorFonts;
     font-size: 30px;
     line-height: 30px;
     font-weight: 300;

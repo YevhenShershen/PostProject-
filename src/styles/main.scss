@@ -1,0 +1,54 @@
+@import './variables';
+@import './components/card-content.scss';
+// $colors: (
+//   color1: #3a3d40,
+// );
+
+//NULLING STYLES
+
+*a {
+  text-decoration: none;
+}
+//TITLES
+.app-title {
+  margin-bottom: 15px;
+  font-size: 32px;
+}
+.app-title2 {
+  font-size: 30px;
+  line-height: 30px;
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+//OTHER
+#app {
+  font-family: $mainFont;
+  color: $colorFonts;
+}
+.app-title,
+p,
+li {
+  color: $colorFonts;
+}
+.main-title {
+  font-size: 42px;
+  text-align: center;
+  margin: 30px 0;
+  text-transform: uppercase;
+}
+// BUTTONS styles
+.app-btn {
+  font-size: 32px;
+  text-transform: uppercase;
+  background: $projectButtons;
+  color: $colorWhite;
+  border-radius: 30px;
+  padding: 8px 45px;
+}
+.app-btn:hover {
+  background-color: #b33030;
+  color: $colorWhite;
+  -webkit-box-shadow: 8px 8px 37px -7px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 8px 8px 37px -7px rgba(66, 68, 90, 1);
+  box-shadow: 8px 8px 37px -7px rgba(66, 68, 90, 1);
+}
