@@ -8,14 +8,14 @@
           kompleksowe wsparcie: helpdesk, administrację serwerami, zarządzanie
           siecią oraz doradztwo IT.
         </span>
-        Firma informatyczna IT Company powstała w 2004 roku w Poznaniu.
+        Firma informatyczna IT Company powstała w 2022 roku w Gdańsku.
         Zatrudniamy serwisantów, administratorów i programistów. Naszymi atutami
         są doświadczenie, zgrany zespół i wypracowane przez lata procedury.
         Dzięki nim możemy dostarczać stabilne rozwiązania dla naszych klientów.
       </p>
       <h2 class="description_title app-title">Doświadczenie</h2>
       <p class="description_text">
-        Od 15 lat zdobywamy wiedzę i doświadczenie w dostarczaniu usług IT dla
+        Od N lat zdobywamy wiedzę i doświadczenie w dostarczaniu usług IT dla
         średnich i dużych firm w całej Polsce. Dążymy do osiągania celów
         biznesowych, ale bardzo ważne jest dla nas również to, w jaki sposób je
         realizujemy. Stabilne warunki zatrudnienia w oparciu o umowę o pracę

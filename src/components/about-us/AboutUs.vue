@@ -6,8 +6,8 @@
       <p>
         Specjalizujemy się w obsłudze informatycznej firm. Oferujemy kompleksowe
         wsparcie: helpdesk, administrację serwerami, zarządzanie siecią oraz
-        doradztwo IT. Firma informatyczna IT Company powstała w 2004 roku w
-        Poznaniu. Zatrudniamy serwisantów, administratorów i programistów.
+        doradztwo IT. Firma informatyczna IT Company powstała w 2022 roku w
+        Gdańsku. Zatrudniamy serwisantów, administratorów i programistów.
         Naszymi atutami są doświadczenie, zgrany zespół i wypracowane przez lata
         procedury. Dzięki nim możemy dostarczać stabilne rozwiązania dla naszych
         klientów.

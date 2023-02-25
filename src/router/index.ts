@@ -55,6 +55,11 @@ const routes: Array<RouteConfig> = [
     name: "PersonInfo",
     component: () => import("../components/about-us/PersonInfo.vue"),
   },
+  {
+    path: "/admin",
+    name: "AdminPanel",
+    component: () => import("../components/admin-panel/AdminPanel.vue"),
+  },
 ];
 
 const router = new VueRouter({

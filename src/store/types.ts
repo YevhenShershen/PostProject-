@@ -64,7 +64,7 @@ export interface Employee {
   username: string;
   email: string;
   address: {
-    street2: string;
+    street: string;
     suite: string;
     city: string;
     zipcode: string;

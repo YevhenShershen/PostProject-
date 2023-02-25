@@ -7,7 +7,7 @@ export const state: GetEmployee = {
 
 const URL = "https://jsonplaceholder.typicode.com/users";
 export const actions: ActionTree<GetEmployee, RootState> = {
-  async loadEmployee({ commit }, id) {
+  async loadEmployee({ commit }, id: string | number) {
     try {
       const res = await fetch(`${URL}/${id}`);
       const data = await res.json();
