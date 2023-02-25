@@ -45,7 +45,7 @@
           </v-col>
         </v-row>
         <v-row v-else class="d-flex justify-center">
-          Employee not found!
+          Pracownik pod takim id nie istnieje!
         </v-row>
       </v-col>
     </v-row>
@@ -55,7 +55,7 @@
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
 import { mapActions, mapGetters } from "vuex";
-
+import { Employee } from "@/store/types";
 import Card from "@/components/about-us/Card.vue";
 
 @Component({
@@ -73,6 +73,7 @@ import Card from "@/components/about-us/Card.vue";
 })
 export default class PersonInfo extends Vue {
   // Define action from ...mapActions above
+  public employee!: Employee;
   protected loadEmployee!: (id: string) => void;
   private async mounted() {
     await this.loadEmployee(this.$route.params.id);

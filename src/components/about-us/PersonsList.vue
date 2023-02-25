@@ -64,7 +64,7 @@ export default class PersonsList extends Vue {
 </script>
 <style lang="scss" scoped>
 .person-list_btn {
-  min-width: 374px;
+  min-width: 355px;
   margin-top: 20px;
 }
 </style>

@@ -40,10 +40,10 @@ export default class Card extends Vue {
   background-repeat: no-repeat;
   background-size: 100% 100%;
   border-radius: 15px;
-  min-width: 374px;
+  min-width: 355px;
 
   &_company-name {
-    margin-top: 50px;
+    margin-top: 40px;
     margin-bottom: 30px;
   }
 
@@ -54,12 +54,9 @@ export default class Card extends Vue {
   }
 
   &_personal-name {
-    margin-top: 30px;
+    margin: 0;
+    margin-top: 10px;
   }
-
-  &_personal-profession {
-  }
-
   &_personal-information {
     border-bottom: 2px dotted #3a3d40;
     width: 280px;
