@@ -1,0 +1,37 @@
+.card {
+  background-image: url("~@/assets/images/employees/card.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  border-radius: 15px;
+  min-width: 355px;
+}
+
+.card_company-name {
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
+.card_personal-photo {
+  border-radius: 100%;
+  -webkit-box-shadow: 0 0 0 3px #3a3d40, 0 0 13px #3a3d40;
+          box-shadow: 0 0 0 3px #3a3d40, 0 0 13px #3a3d40;
+  width: 120px;
+}
+
+.card_personal-name {
+  margin: 0;
+  margin-top: 10px;
+}
+
+.card_personal-information {
+  border-bottom: 2px dotted #3a3d40;
+  width: 280px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: blue;
+}
+
+.card_personal-information:last-child {
+  margin-bottom: 80px;
+}
+/*# sourceMappingURL=card-content.css.map */
