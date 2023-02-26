@@ -7,6 +7,7 @@ import { navigation } from "@/store/modules/navigation";
 import { companyInformation } from "@/store/modules/company-information";
 import { employees } from "@/store/modules/employees";
 import { employee } from "@/store/modules/employee";
+import { websList } from "@/store/modules/webs-list";
 Vue.use(Vuex);
 
 export const store = new Vuex.Store({
@@ -19,5 +20,6 @@ export const store = new Vuex.Store({
     companyInformation,
     employees,
     employee,
+    websList,
   },
 });

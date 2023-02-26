@@ -3,6 +3,7 @@ export interface RootState {
   companyInformation: ICompanyInformation;
   employees: Employees;
   employee: GetEmployee;
+  websList: IWebsList;
   //TEST COMPONENT
   count: Count;
   todos: TodoState;
@@ -86,4 +87,13 @@ export interface Employees {
 }
 export interface GetEmployee {
   employee: Employee | null;
+}
+
+export interface IWebInfo {
+  webPageName: string;
+  category: string;
+  likes: number;
+}
+export interface IWebsList {
+  webPagesList: IWebInfo[];
 }
