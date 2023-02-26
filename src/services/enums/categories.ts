@@ -2,7 +2,8 @@
 //categories.POPULAR_ADDED_CATEGORIES а так вызывается
 
 enum categories {
-  "LAST_ADDED_CATEGORIES" = "recent",
-  "POPULAR_ADDED_CATEGORIES" = "viewed",
+  "INFORMATION_PAGES" = "strony informacyjne",
+  "CARD_WEBSITE" = "web wizytówka",
+  "ONLINE_SHOPS" = "sklepy internetowe",
 }
 export default categories;
