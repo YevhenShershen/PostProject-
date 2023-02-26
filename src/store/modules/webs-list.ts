@@ -4,47 +4,47 @@ import categories from "@/services/enums/categories";
 export const state: IWebsList = {
   webPagesList: [
     {
-      webPageName: "google.com",
+      webPageName: "https://google.com/",
       category: categories.INFORMATION_PAGES,
       likes: 4,
     },
     {
-      webPageName: "vue.js",
+      webPageName: "https://vuejs.org/",
       category: categories.INFORMATION_PAGES,
       likes: 0,
     },
     {
-      webPageName: "gov.pl",
+      webPageName: "https://gov.pl/",
       category: categories.INFORMATION_PAGES,
       likes: 22,
     },
     {
-      webPageName: "readymag.com",
+      webPageName: "https://readymag.com/",
       category: categories.CARD_WEBSITE,
       likes: 43,
     },
     {
-      webPageName: "law.stanford.edu",
+      webPageName: "https://law.stanford.edu/",
       category: categories.CARD_WEBSITE,
       likes: 114,
     },
     {
-      webPageName: "ecoshape.org",
+      webPageName: "https://ecoshape.org/",
       category: categories.CARD_WEBSITE,
       likes: 14,
     },
     {
-      webPageName: "allegro.pl",
+      webPageName: "https://allegro.pl/",
       category: categories.ONLINE_SHOPS,
       likes: 23,
     },
     {
-      webPageName: "amazon.pl",
+      webPageName: "https://www.amazon.pl/",
       category: categories.ONLINE_SHOPS,
       likes: 2,
     },
     {
-      webPageName: "store.playstation.com",
+      webPageName: "https://store.playstation.com/",
       category: categories.ONLINE_SHOPS,
       likes: 112,
     },
