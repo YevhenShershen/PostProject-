@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2>{{ category }}</h2>
-    <v-row> <WebContent :categoryList="getWebPagesList(category)" /> </v-row>
+    <WebContent :categoryList="getWebPagesList(category)" />
   </div>
 </template>
 

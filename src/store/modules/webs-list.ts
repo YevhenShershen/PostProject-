@@ -52,8 +52,13 @@ export const state: IWebsList = {
 };
 
 export const mutations: MutationTree<IWebsList> = {
-  // setEmployees(state, employees) {
-  // },
+  incrementLike(state, webName: string) {
+    state.webPagesList.map((el) => {
+      if (el.webPageName === webName) {
+        el.likes += 1;
+      } else "Something wrong with mutations";
+    });
+  },
 };
 export const getters: GetterTree<IWebsList, RootState> = {
   GET_WEB_PAGES_LIST: (state) => (category: string) => {

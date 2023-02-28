@@ -90,8 +90,4 @@ export default class TestComponent extends Vue {
 }
 </script>
 
-<style scoped lang="scss">
-// .test-title {
-//   color: $buttonAgree;
-// }
-</style>
+<style scoped lang="scss"></style>
