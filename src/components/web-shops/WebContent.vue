@@ -23,6 +23,7 @@
           <v-spacer></v-spacer>
           <span class="web-content_like">
             <button
+              :disabled="activeLikes ? true : false"
               @click="$store.commit('websList/incrementLike', web.webPageName)"
             >
               <font-awesome-icon icon="fa-regular fa-thumbs-up" />
@@ -36,17 +37,13 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from "vue-property-decorator";
-import { mapMutations } from "vuex";
-@Component({
-  computed: {
-    ...mapMutations({
-      incrementLike: "websList/incrementLike",
-    }),
-  },
-})
+import { Component, Vue, Prop, InjectReactive } from "vue-property-decorator";
+
+@Component({})
 export default class WebContent extends Vue {
+  public a = true;
   @Prop({ required: true }) readonly categoryList!: any[];
+  @InjectReactive("key") public activeLikes!: any;
 }
 </script>
 <style lang="scss" scoped>
