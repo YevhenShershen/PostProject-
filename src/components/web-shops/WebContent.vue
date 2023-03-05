@@ -38,12 +38,12 @@
 
 <script lang="ts">
 import { Component, Vue, Prop, InjectReactive } from "vue-property-decorator";
-
+import { IWebInfo } from "@/store/types";
 @Component({})
 export default class WebContent extends Vue {
   public a = true;
-  @Prop({ required: true }) readonly categoryList!: any[];
-  @InjectReactive("key") public activeLikes!: any;
+  @Prop({ required: true }) readonly categoryList!: IWebInfo[];
+  @InjectReactive("key") public activeLikes!: boolean;
 }
 </script>
 <style lang="scss" scoped>

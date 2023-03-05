@@ -1,14 +1,19 @@
 <template>
   <div>
-    <h1 class="d-flex">
-      WEB SHOPS LIST {{ activeLikes }}
-      <v-switch
-        color="indigo"
-        value="indigo"
-        hide-details
-        @click="toggleActiveLIkes()"
-      ></v-switch>
-    </h1>
+    <div class="d-flex">
+      <h1 class="d-flex">WEB SHOPS LIST</h1>
+      <v-spacer></v-spacer>
+      <span class="d-flex">
+        włączyć / wyłączyć polubienie&ensp;
+        <v-switch
+          class="mt-0"
+          color="indigo"
+          value="indigo"
+          hide-details
+          @click="toggleActiveLIkes()"
+        ></v-switch>
+      </span>
+    </div>
 
     <WebCategoryList
       v-for="(category, index) in categories"

@@ -1,7 +1,8 @@
 <template>
   <div>
-    <h2>{{ category }}</h2>
+    <h2>{{ category[0].toUpperCase() + category.slice(1) }}</h2>
     <WebContent :categoryList="getWebPagesList(category)" />
+    <v-divider></v-divider>
   </div>
 </template>
 
@@ -18,7 +19,7 @@ import WebContent from "./WebContent.vue";
   },
 })
 export default class WebCategoryList extends Vue {
-  @Prop({ required: true }) readonly category!: any;
+  @Prop({ required: true }) readonly category!: string;
 }
 </script>
 <style lang="scss" scoped></style>

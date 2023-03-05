@@ -7,13 +7,13 @@
       <v-card-text>
         <v-form>
           <v-text-field
-            :label="isLogin ? 'Mail' : 'incorrect mail'"
+            :label="isLoginCorrect ? 'Mail' : 'incorrect mail'"
             prepend-icon="mdi-account-circle"
             v-model.trim="loginData.mail"
           ></v-text-field>
           <v-text-field
             :type="showPassword ? 'test' : 'password'"
-            :label="isLogin ? 'Password' : 'incorrect password'"
+            :label="isLoginCorrect ? 'Password' : 'incorrect password'"
             prepend-icon="mdi-lock"
             :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
             v-model.trim="loginData.password"
@@ -41,7 +41,7 @@ interface IAdmin {
 export default class HeaderApp extends Vue {
   name: any = "Login";
   showPassword: any = false;
-  isLogin: boolean | string = true;
+  isLoginCorrect: boolean | string = true;
   admin: IAdmin = {
     mail: "admin@mail.com",
     password: "qwerty123A!",
@@ -52,14 +52,13 @@ export default class HeaderApp extends Vue {
   };
   checkLoginData(arg: IAdmin): void {
     if (this.admin.mail == arg.mail && this.admin.password == arg.password) {
-      this.isLogin = true;
       this.$router.push("/admin");
     } else {
       this.loginData = {
         mail: "",
         password: "",
       };
-      this.isLogin = false;
+      this.isLoginCorrect = false;
     }
   }
 }
